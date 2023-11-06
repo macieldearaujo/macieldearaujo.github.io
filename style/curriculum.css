@@ -79,16 +79,25 @@ header {
     grid-gap: 5%;
 }
 
-/* .form-container-grid-input {
-
-} */
-
 .form-input {
     width: 100%;
     font-size: 15px;
     padding: 9px;
     border-radius: 5px;
     border: 0.6px solid rgba(42, 42, 42, 0.492);
+}
+
+.form-input-bigger {
+    min-height: 70px;
+    width: 100%;
+    font-size: 15px;
+    padding: 9px;
+    border-radius: 5px;
+    border: 0.6px solid rgba(42, 42, 42, 0.492);
+}
+
+.form-input-bigger p {
+    top: 0;
 }
 
 .form-input:hover {
