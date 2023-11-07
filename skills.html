@@ -35,11 +35,40 @@
             <div class="form-container-grid-2">
                 <div>
                     <h3 class="form-title-input">Idioma</h3>
-                    <input placeholder="Digite o idioma aqui" class="form-input">
+                    <select name="languages" class="form-input" required>
+                        <option value="default" selected>Selecione aqui</option>
+                        <option value="ingles">Inglês</option>
+                        <option value="espanhol">Espanhol</option>
+                        <option value="chines">Chinês (Mandarim)</option>
+                        <option value="hindi">Hindi</option>
+                        <option value="arabe">Árabe</option>
+                        <option value="portugues">Português</option>
+                        <option value="bengali">Bengali</option>
+                        <option value="russo">Russo</option>
+                        <option value="japones">Japonês</option>
+                        <option value="alemao">Alemão</option>
+                        <option value="javanês">Javanês</option>
+                        <option value="punjabi">Punjabi</option>
+                        <option value="marathi">Marathi</option>
+                        <option value="telugu">Telugu</option>
+                        <option value="turco">Turco</option>
+                        <option value="frances">Francês</option>
+                        <option value="coreano">Coreano</option>
+                        <option value="tamil">Tamil</option>
+                        <option value="urdu">Urdu</option>
+                        <option value="italiano">Italiano</option>
+                    </select>
                 </div>
                 <div>
                     <h3 class="form-title-input">Proeficiência</h3>
-                    <input placeholder="Intermediário" class="form-input">
+                    <select name="levels" class="form-input" required>
+                        <option value="default" selected>Selecione aqui</option>
+                        <option value="beginner">Iniciante</option>
+                        <option value="intermediary">Intermediário</option>
+                        <option value="advanced">Avançado</option>
+                        <option value="fluent">Fluente</option>
+                        <option value="native">Nativo</option>
+                    </select>
                 </div>
             </div>
             <button class="form-button-add">Adicionar</button>
@@ -51,10 +80,66 @@
                     <img src="img/bin.png" style="width: 18px;">
                 </button>
             </div>
-            <input placeholder="Digite a habilidade ou competência aqui" class="form-input form-input-skills">
-            <button class="form-button-add">Adicionar</button>
-                <br>
-                <a href="skills.html"><button class="form-button-continue">Finalizar</button></a>
+            <select name="levels" class="form-input" required>
+                <option value="default" selected>Selecione uma habilidade ou competência</option>
+                <option value="comunicacao">Comunicação eficaz</option>
+                <option value="trabalhoemgrupo">Trabalho em equipe</option>
+                <option value="resolucaodeproblemas">Resolução de problemas</option>
+                <option value="criatividade">Criatividade</option>
+                <option value="adaptabilidade">Adaptabilidade</option>
+                <option value="lideranca">Liderança</option>
+                <option value="gestaodetempo">Gestão de tempo</option>
+                <option value="organizacao">Organização</option>
+                <option value="pensamentocritico">Pensamento crítico</option>
+                <option value="aprendizagemrapida">Aprendizagem rápida</option>
+                <option value="negociacao">Negociação</option>
+                <option value="tomadadecisao">Tomada de decisão</option>
+                <option value="solucaodeconflitos">Resolução de conflitos</option>
+                <option value="focoemresultados">Foco em resultados</option>
+                <option value="inovacao">Inovação</option>
+                <option value="criacaodeestrategia">Criação de estratégia</option>
+                <option value="analisededados">Análise de dados</option>
+                <option value="habilidadesnumericas">Habilidades numéricas</option>
+                <option value="gestaodeprojetos">Gestão de projetos</option>
+                <option value="trabalhoindependente">Trabalho independente</option>
+                <option value="habilidadesinterpessoais">Habilidades interpessoais</option>
+                <option value="programacao">Programação</option>
+                <option value="gerenciamentoderecursos">Gerenciamento de recursos</option>
+                <option value="marketingdigital">Marketing digital</option>
+                <option value="idiomasestrangeiros">Idiomas estrangeiros</option>
+                <option value="designgrafico">Design gráfico</option>
+                <option value="redacaoprofissional">Redação profissional</option>
+                <option value="liderancadeequipe">Liderança de equipe</option>
+                <option value="manutencaodeequipamentos">Manutenção de equipamentos</option>
+                <option value="gestaodeestoque">Gestão de estoque</option>
+                <option value="atendimentoaocliente">Atendimento ao cliente</option>
+                <option value="planejamentodeeventos">Planejamento de eventos</option>
+                <option value="gestaodequalidade">Gestão de qualidade</option>
+                <option value="financasempresariais">Finanças empresariais</option>
+                <option value="marketingdeconteudo">Marketing de conteúdo</option>
+                <option value="gestaodevendas">Gestão de vendas</option>
+                <option value="tecnologiadainformacao">Tecnologia da informação</option>
+                <option value="gestaodeequipe">Gestão de equipe</option>
+                <option value="relacoespublicas">Relações públicas</option>
+                <option value="habilidadesdecomunicacao">Habilidades de comunicação</option>
+                <option value="empreendedorismo">Empreendedorismo</option>
+                <option value="inteligenciaemocional">Inteligência emocional</option>
+                <option value="analisedemercado">Análise de mercado</option>
+                <option value="planejamentofinanceiro">Planejamento financeiro</option>
+                <option value="estrategiadigital">Estratégia digital</option>
+                <option value="habilidadesdevenda">Habilidades de venda</option>
+                <option value="analisedeinvestimentos">Análise de investimentos</option>
+                <option value="gestaoderecursoshumanos">Gestão de recursos humanos</option>
+                <option value="excel">Microsoft Excel</option>
+                <option value="autocad">AutoCAD</option>
+                <option value="photoshop">Adobe Photoshop</option>
+                <option value="illustrator">Adobe Illustrator</option>
+                <option value="java">Java</option>
+                <option value="python">Python</option>
+                <button class="form-button-add">Adicionar</button>
+            </select>
+            <br>
+            <a href="skills.html"><button class="form-button-continue">Finalizar</button></a>
         </section>
     </main>
 </body>
