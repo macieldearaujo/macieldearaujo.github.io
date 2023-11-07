@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <h1>Indeed</h1>
+        <h1>Resume Generator</h1>
     </header>
     <div class="content-wrapper">
         <span class="page-marker-div">
@@ -26,17 +26,17 @@
         <section class="form-section">
             <h2 class="form-title-topic">Informações pessoais:</h2>
             <h3 class="form-title-input">Nome</h3>
-            <input placeholder="Digite seu nome aqui" class="form-input">
+            <input placeholder="Digite seu nome aqui" class="form-input" required>
             <h3 class="form-title-input">Email</h3>
-            <input placeholder="thomas@example.com" class="form-input">
+            <input placeholder="thomas@example.com" class="form-input" required>
             <div class="form-container-grid-1">
                 <div>
                     <h3 class="form-title-input">Telefone</h3>
-                    <input placeholder="(99) 9 1234-5678" class="form-input">
+                    <input placeholder="(99) 91234-5678" pattern="\(\d{2}\) \d{8}" class="form-input" required>
                 </div>
                 <div class="form-container-grid-input">
                     <h3 class="form-title-input">Estado Civil</h3>
-                    <select id="paises" name="Paises" class="form-input form-select">
+                    <select id="paises" name="Paises" class="form-select">
                         <option value="solteiro">Solteiro(a)</option>
                         <option value="casado">Casado(a)</option>
                         <option value="divorciado">Divorciado(a)</option>
@@ -50,7 +50,7 @@
             <div class="form-container-grid-1">
                 <div>
                     <h3 class="form-title-input">País</h3>
-                    <select id="paises" name="Paises" class="form-input form-select">
+                    <select id="paises" name="country" class="form-select">
                         <option value="afghanistan">Afeganistão</option>
                         <option value="albania">Albânia</option>
                         <option value="algeria">Argélia</option>
@@ -105,11 +105,11 @@
                 </div>
                 <div>
                     <h3 class="form-title-input">Cidade</h3>
-                    <input placeholder="São Paulo" class="form-input">
+                    <input placeholder="São Paulo" class="form-input" required>
                 </div>
             </div>
             <h3 class="form-title-input">Bairro</h3>
-            <input placeholder="Digite seu bairro" class="form-input">
+            <input placeholder="Digite seu bairro" class="form-input" required>
 
 
             <a href="education.html"><button class="form-button-continue">Continuar</button></a>

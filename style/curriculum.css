@@ -44,9 +44,9 @@ header {
     background-color: #738FF2;
 }
 
-
+ /* Main */
 .form {
-    width: 600px;
+    max-width: 600px;
     margin: auto;
 }
 
@@ -98,6 +98,19 @@ header {
     border: 0.6px solid rgba(42, 42, 42, 0.492);
 }
 
+.form-select {
+    width: 100%;
+    font-size: 15px;
+    text-indent: 10px;
+    height: 40px;
+    border-radius: 5px;
+    border: 0.6px solid rgba(42, 42, 42, 0.492);
+}
+
+.form-input:valid {
+    box-shadow: 3px 2px 0px #072959;
+}
+
 .form-input-skills {
     margin-top: 20px;
 }
@@ -125,6 +138,10 @@ header {
     text-align: center;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.form-button-continue:active {
+    background-color: #3d3aab;
 }
 
 .form-button-add {
