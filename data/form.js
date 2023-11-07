@@ -4,14 +4,11 @@ if(!form) {
     form = [];
 }
 
-export function saveToStorage() {
+function saveToStorage() {
     localStorage.setItem('form', JSON.stringify(form));
 } 
 
 export function consoleForm() {
-    const button_index = document.querySelector('.js-form-button-continue');
-
-    button_index.addEventListener('click', () => {
         const name = document.querySelector('input[name="name"]').value;
         const email = document.querySelector('input[name="email"]').value;
         const phone = document.querySelector('.form-input[name="phone"]').value;
@@ -34,8 +31,25 @@ export function consoleForm() {
                     neighborhood
                 }
             })
+
+            form.push({
+                    country,
+                    city,
+                    neighborhood
+                }
+            )
         }
         saveToStorage();
         console.log(form)
+}
+
+export function checkInputs(page) {
+    const continueButton = document.querySelector(`.js-form-button-continue-${page}`)
+
+    continueButton.addEventListener('click', () => {
+        console.log(form.length, form)
+        if(form.length === 2) {
+            consoleForm()
+        }
     })
 }

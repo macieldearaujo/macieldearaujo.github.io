@@ -1,5 +1,5 @@
-import { form, consoleForm } from '../data/form.js'
+import { form, checkInputs } from '../data/form.js'
 
-consoleForm();
+checkInputs('index');
 
 console.log(form)
