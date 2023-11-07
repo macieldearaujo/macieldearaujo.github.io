@@ -8,7 +8,7 @@
 body {
     font-family: 'Noto Sans', sans-serif;
     margin-top: 110px;
-    margin-bottom: 64px;
+    margin-bottom: 50px;
 }
 
 header {
@@ -56,13 +56,13 @@ header {
 
 .form-title-topic {
     font-size: 28px;
-    margin: 20px 0px 5px 0px;
+    margin: 20px 0px 10px 0px;
     text-indent: 10px;
 }
 
 .form-title-input {
     color: #424242;
-    margin: 10px 0px;
+    margin: 8px 0px;
     font-size: 16px;
     text-indent: 5px;
 }
@@ -75,25 +75,31 @@ header {
 
 .form-container-grid-2 {
     display: grid;
-    grid-template-columns: 47.5% 47.5%;
-    grid-gap: 5%;
+    grid-template-columns: 49% 49%;
+    grid-gap: 2%;
 }
+
+/* Inputs */
 
 .form-input {
     width: 100%;
     font-size: 15px;
-    padding: 9px;
+    text-indent: 10px;
+    height: 40px;
     border-radius: 5px;
     border: 0.6px solid rgba(42, 42, 42, 0.492);
 }
 
 .form-input-bigger {
     min-height: 70px;
-    width: 100%;
     font-size: 15px;
     padding: 9px;
     border-radius: 5px;
     border: 0.6px solid rgba(42, 42, 42, 0.492);
+}
+
+.form-input-skills {
+    margin-top: 20px;
 }
 
 .form-input-bigger p {
