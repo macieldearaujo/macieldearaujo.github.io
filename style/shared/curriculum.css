@@ -129,6 +129,10 @@ header {
     cursor: pointer;
 }
 
+.form-button-continue:hover {
+    background-color: #3d3aab;
+}
+
 .form-button-continue:active {
     background-color: #3d3aab;
 }
