@@ -123,10 +123,6 @@ header {
     background-color: rgba(240, 240, 240, 0.363);
 }
 
-.form-input:focus {
-    background-color: rgba(240, 240, 240, 0.363);
-}
-
 .form-button-continue {
     background-color: #605CE9;
     color: white;
