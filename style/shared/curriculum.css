@@ -26,6 +26,10 @@ header h1 {
     font-size: 18px;
 }
 
+.asterisk {
+    color: red;
+}
+
 .content-wrapper {
     width: 150px;
     margin: auto;
@@ -63,7 +67,7 @@ header h1 {
 
 .form-title-topic {
     font-size: 28px;
-    margin: 20px 0px 10px 0px;
+    margin: 25px 0px 15px 0px;
     text-indent: 10px;
 }
 
@@ -83,6 +87,18 @@ header h1 {
 .form-container-grid-2 {
     display: grid;
     grid-template-columns: 49% 49%;
+    grid-gap: 2%;
+}
+
+.form-container-grid-3 {
+    display: grid;
+    grid-template-columns: 44.5% 44.5% 5%;
+    grid-gap: 2%;
+}
+
+.form-container-grid-4 {
+    display: grid;
+    grid-template-columns: 91% 5%;
     grid-gap: 2%;
 }
 
@@ -106,8 +122,9 @@ header h1 {
     border: 0.6px solid rgba(42, 42, 42, 0.492);
 }
 
-.form-input:valid {
-    box-shadow: 3px 2px 0px #072959;
+.form-input:focus {
+    outline: none;
+    box-shadow: 0px -3px 0px #103d7ce2 inset;
 }
 
 .form-input-skills {
@@ -143,7 +160,7 @@ header h1 {
     background-color: #3d3aab;
 }
 
-.form-button-add {
+.form-button-add-1 {
     background-color: #cec9e27c;
     color: black;
     font-weight: bold;
@@ -157,8 +174,32 @@ header h1 {
     cursor: pointer;
 }
 
-.form-button-add:hover {
+.form-button-add-2 {
+    background-color: #cec9e27c;
+    box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.251);
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    width: 40px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-button-add-1:hover {
     background-color: #cec9e2be;
+}
+
+.form-button-add-2:hover {
+    background-color: #b9b3ce86;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.271);
+    
+}
+
+.form-button-add-2:active {
+    background-color: #8d88a2be;
 }
 
 hr {

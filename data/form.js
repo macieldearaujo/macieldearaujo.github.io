@@ -1,1 +1,1 @@
-let form = [];
+export let form = [];

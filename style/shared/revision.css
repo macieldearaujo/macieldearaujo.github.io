@@ -23,6 +23,10 @@
     background-color: rgba(249, 131, 131, 0.236);
 }
 
+.bin-img:active {
+    background-color: rgba(207, 60, 60, 0.39);
+}
+
 .form-title-revision-1 {
     display: inline-block;
     width: 90%;
