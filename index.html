@@ -25,18 +25,21 @@
     <main class="form">
         <form class="form-section">
             <h2 class="form-title-topic">Informações pessoais:</h2>
+
             <h3 class="form-title-input">Nome <span class="asterisk">*</span></h3>
-            <input type="text" placeholder="Digite seu nome aqui" class="form-input js-form-input-name">
+            <input type="text" placeholder="Digite seu nome aqui" name="name" class="form-input js-form-input-name">
+
             <h3 class="form-title-input">Email <span class="asterisk">*</span></h3>
-            <input placeholder="thomas@example.com" type="email" name="email" class="form-input">
+            <input placeholder="thomas@example.com" type="email" name="email" class="form-input js-form-input-email">
+
             <div class="form-container-grid-1">
                 <div>
                     <h3 class="form-title-input">Telefone <span class="asterisk">*</span></h3>
-                    <input placeholder="(99) 91234-5678" pattern="\(\d{2}\) \d{9}" class="form-input">
+                    <input placeholder="(99) 91234-5678" pattern="\(\d{2}\) \d{9}" name="phone" class="form-input js-form-input-phone">
                 </div>
                 <div class="form-container-grid-input">
                     <h3 class="form-title-input">Estado Civil <span class="asterisk">*</span></h3>
-                    <select id="paises" name="Paises" class="form-input">
+                    <select id="paises" name="Paises" name="maritalStatus" class="form-input js-form-input-maritial-status">
                         <option value="solteiro">Solteiro(a)</option>
                         <option value="casado">Casado(a)</option>
                         <option value="divorciado">Divorciado(a)</option>
@@ -46,11 +49,13 @@
                     </select>
                 </div>
             </div>
+
             <h2 class="form-title-topic">Endereço:</h2>
+
             <div class="form-container-grid-1">
                 <div>
                     <h3 class="form-title-input">País <span class="asterisk">*</span></h3>
-                    <select id="paises" name="country" class="form-input">
+                    <select id="paises" name="country" class="form-input js-form-input-country">
                         <option value="afghanistan">Afeganistão</option>
                         <option value="albania">Albânia</option>
                         <option value="algeria">Argélia</option>
@@ -105,11 +110,11 @@
                 </div>
                 <div>
                     <h3 class="form-title-input">Cidade <span class="asterisk">*</span></h3>
-                    <input placeholder="São Paulo" class="form-input">
+                    <input placeholder="São Paulo" name="city" class="form-input js-form-input-city">
                 </div>
             </div>
             <h3 class="form-title-input">Bairro</h3>
-            <input placeholder="Digite seu bairro" class="form-input">
+            <input placeholder="Digite seu bairro" name="neighborhood" class="form-input js-form-input-neighborhood">
 
 
             <a href="#">
