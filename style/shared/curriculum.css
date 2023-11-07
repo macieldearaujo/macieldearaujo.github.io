@@ -150,3 +150,8 @@ header {
 .form-button-add:hover {
     background-color: #cec9e2be;
 }
+
+hr {
+    margin-top: 10px;
+    border-color: rgb(225, 225, 225);
+}
