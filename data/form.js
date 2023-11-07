@@ -1,7 +1,7 @@
 export let form = JSON.parse(localStorage.getItem('form'));
 
 if(!form) {
-    form = [];
+    form = {};
 }
 
 function saveToStorage() {
@@ -17,28 +17,16 @@ export function consoleForm() {
         const city =  document.querySelector('.form-input[name="city"]').value;
         const neighborhood = document.querySelector('.js-form-input-neighborhood').value;
         
-        if(form.length === 0) {
-            form.push({
-                personalInformation: {
-                    name,
-                    email,
-                    phone,
-                    marital_status,
-                },
-                adress: {
-                    country,
-                    city,
-                    neighborhood
-                }
-            })
+        form.personalInformations = {};
+        form.personalInformations.name = name;
+        form.personalInformations.email = email;
+        form.personalInformations.phone = phone;
+        form.personalInformations.marital_status = marital_status;
+        form.adress = {};
+        form.adress.country = country;
+        form.adress.city = city;
+        form.adress.neighborhood = neighborhood;
 
-            form.push({
-                    country,
-                    city,
-                    neighborhood
-                }
-            )
-        }
         saveToStorage();
         console.log(form)
 }
@@ -48,8 +36,6 @@ export function checkInputs(page) {
 
     continueButton.addEventListener('click', () => {
         console.log(form.length, form)
-        if(form.length === 2) {
             consoleForm()
-        }
     })
 }
