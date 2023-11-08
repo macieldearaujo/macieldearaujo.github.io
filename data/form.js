@@ -2,7 +2,8 @@ export let form = JSON.parse(localStorage.getItem('form'));
 
 if (!form) {
     form = {
-        courses: []
+        courses: [],
+        experiences: []
     };
 }
 
@@ -23,7 +24,7 @@ export function displayAlert() {
 }
 
 export function displayOnScreen(page) {    
-    const container = document.querySelector('.form-container-course');
+    const container = document.querySelector('.form-container');
     let displayHTML = '';
 
 form.courses.forEach((value) => {

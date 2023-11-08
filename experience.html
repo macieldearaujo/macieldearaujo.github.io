@@ -28,16 +28,16 @@
             <div class="form-container-grid-2">
                 <div>
                     <h3 class="form-title-input">Cargo <span class="asterisk">*</span></h3>
-                    <input placeholder="Digite o cargo" class="form-input" required>
+                    <input placeholder="Digite o cargo" class="form-input js-form-input-position" required>
                 </div>
                 <div>
                     <h3 class="form-title-input">Empresa <span class="asterisk">*</span></h3>
-                    <input placeholder="Digite a empresa" class="form-input" required>
+                    <input placeholder="Digite a empresa" class="form-input js-form-input-company" required>
                 </div>
             </div>
             <h3 class="form-title-input">De: <span class="asterisk">*</span></h3>
             <div class="form-container-grid-2">
-                <select name="months" class="form-input" required>
+                <select name="months" class="form-input js-form-input-begin-month" required>
                     <option value="month">Mês</option>
                     <option value="01">Janeiro</option>
                     <option value="02">Fevereiro</option>
@@ -52,7 +52,7 @@
                     <option value="11">Novembro</option>
                     <option value="12">Dezembro</option>
                 </select>
-                <select name="years" class="form-input" required>
+                <select name="years" class="form-input js-form-input-begin-year" required>
                     <option value="year">Ano</option>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
@@ -159,8 +159,8 @@
             </div>
             <h3 class="form-title-input">Até: <span class="asterisk">*</span></h3>
             <div class="form-container-grid-2">
-                <select name="months" class="form-input" required>
-                    <option value="month">Mês</option>
+                <select name="months" class="form-input js-form-input-end-month" required>
+                    <option value="default">Mês</option>
                     <option value="01">Janeiro</option>
                     <option value="02">Fevereiro</option>
                     <option value="03">Março</option>
@@ -174,8 +174,16 @@
                     <option value="11">Novembro</option>
                     <option value="12">Dezembro</option>
                 </select>
-                <select name="years" class="form-input" required>
-                    <option value="year">Ano</option>
+                <select name="years" class="form-input js-form-input-end-year" required>
+                    <option value="default">Ano</option>
+                    <option value="2031">2031</option>
+                    <option value="2030">2030</option>
+                    <option value="2029">2029</option>
+                    <option value="2028">2028</option>
+                    <option value="2027">2027</option>
+                    <option value="2026">2026</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
                     <option value="2021">2021</option>
@@ -280,12 +288,13 @@
                 </select>
             </div>
             <h3 class="form-title-input">Responsabilidades e realizações no trabalho</h3>
-            <div class="form-input-bigger" contenteditable="true">
+            <div class="form-input-bigger js-form-input-description" contenteditable="true">
             </div>
             <br>
-            <a href="experience revision.html"><button class="form-button-continue">Continuar</button></a>
+            <button class="form-button-continue js-form-button-continue-experience">Continuar</button>
         </section>
     </main>
+    <script type="module" src="script/experience.js"></script>
 </body>
 
 </html>
