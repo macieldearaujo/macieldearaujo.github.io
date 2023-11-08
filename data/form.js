@@ -16,6 +16,9 @@ export function submit() {
     const country = document.querySelector('.js-form-input-country').value;
     const city = document.querySelector('.form-input[name="city"]').value;
     const neighborhood = document.querySelector('.js-form-input-neighborhood').value;
+    
+    
+    
 
     if (!name || !email || !phone || !marital_status || !country || !city) {
         displayAlert();

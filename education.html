@@ -29,16 +29,16 @@
             <div class="form-container-grid-2">
                 <div class="form-container-grid-input">
                     <h3 class="form-title-input">Título do curso <span class="asterisk">*</span></h3>
-                    <input placeholder="Digite o título do curso" class="form-input" required>
+                    <input placeholder="Digite o título do curso" class="form-input js-form-input-course" required>
                 </div>
                 <div class="form-container-grid-input">
                     <h3 class="form-title-input">Instituição de ensino <span class="asterisk">*</span></h3>
-                    <input placeholder="Digite a Instituição" class="form-input" required>
+                    <input placeholder="Digite a Instituição" class="form-input js-form-input-institution" required>
                 </div>
             </div>
             <h3 class="form-title-input">De: <span class="asterisk">*</span></h3>
             <div class="form-container-grid-2">
-                <select name="months" class="form-input" required>
+                <select name="months" class="form-input js-form-input-begin-month" required>
                     <option value="default">Mês</option>
                     <option value="01">Janeiro</option>
                     <option value="02">Fevereiro</option>
@@ -53,7 +53,7 @@
                     <option value="11">Novembro</option>
                     <option value="12">Dezembro</option>
                 </select>
-                <select name="years" class="form-input" required>
+                <select name="years" class="form-input js-form-input-begin-year" required>
                     <option value="default">Ano</option>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
@@ -160,7 +160,7 @@
             </div>
             <h3 class="form-title-input">Até: <span class="asterisk">*</span></h3>
             <div class="form-container-grid-2">
-                <select name="months" class="form-input" required>
+                <select name="months" class="form-input js-form-input-end-month" required>
                     <option value="default">Mês</option>
                     <option value="01">Janeiro</option>
                     <option value="02">Fevereiro</option>
@@ -175,7 +175,7 @@
                     <option value="11">Novembro</option>
                     <option value="12">Dezembro</option>
                 </select>
-                <select name="years" class="form-input" required>
+                <select name="years" class="form-input js-form-input-end-year" required>
                     <option value="default">Ano</option>
                     <option value="2031">2031</option>
                     <option value="2030">2030</option>
@@ -289,7 +289,7 @@
                 </select>
             </div>
             <br>
-            <a href="education revision.html"><button class="form-button-continue">Continuar</button></a>
+            <button class="form-button-continue">Continuar</button>
         </section>
     </main>
     <script type="module" src="script/education.js"></script>
