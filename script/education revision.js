@@ -1,11 +1,14 @@
 import { form, saveToStorage, removeFromForm } from '../data/form.js'
 
-const page = 'education-revision'
+const page = 'education'
 
-checkInput(page);
+displayOnScreen(page);
 
-const container = document.querySelector('.form-container-course');
-let courseHTML = '';
+function displayOnScreen(page) {
+    checkInput(page);
+    
+    const container = document.querySelector('.form-container-course');
+    let courseHTML = '';
 
 form.courses.forEach((course) => {
     const course_id = course.course_id;
@@ -29,8 +32,9 @@ form.courses.forEach((course) => {
 })
 
 container.innerHTML = courseHTML;
+}
 
-const continueButton = document.querySelector('.js-form-button-add-education-revision');
+const continueButton = document.querySelector('.js-form-button-add-education');
 
 continueButton.addEventListener('click', () => {
     window.location.href = 'education.html';
@@ -41,6 +45,7 @@ function checkInput(page) {
     const continueButton = document.querySelector(`.js-form-button-continue-${page}`);
 
     continueButton.addEventListener('click', () => {
+        window.location.href = 'experience.html'
     })
 }
 
