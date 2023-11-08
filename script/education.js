@@ -21,16 +21,22 @@ function checkInput(page) {
         } else if (course_begin_year > course_end_year || (course_begin_year === course_end_year && course_begin_month > course_end_month)) {
             displayAlert();
         } else {
+            addToForm();
             window.location.href = 'education revision.html';
         }
 
-        form.courses = {};
-        form.courses.course_name = course_name;
-        form.courses.course_institution = course_institution;
-        form.courses.course_begin_month = course_begin_month;
-        form.courses.course_begin_year = course_begin_year;
-        form.courses.course_end_month = course_end_month;
-        form.courses.course_end_year = course_end_year;
+        function addToForm() {
+            const courses = {
+                course_name: course_name,
+                course_institution: course_institution,
+                course_begin_month: course_begin_month,
+                course_begin_year: course_begin_year,
+                course_end_month: course_end_month,
+                course_end_year: course_end_year,
+            };
+            
+            form.courses.push(courses);
+        }
 
         console.log(form)
         saveToStorage();

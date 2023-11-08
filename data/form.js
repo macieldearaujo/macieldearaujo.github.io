@@ -1,7 +1,9 @@
 export let form = JSON.parse(localStorage.getItem('form'));
 
 if (!form) {
-    form = {};
+    form = {
+        courses: []
+    };
 }
 
 export function saveToStorage() {
