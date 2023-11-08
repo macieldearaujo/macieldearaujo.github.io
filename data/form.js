@@ -37,6 +37,8 @@ i.forEach((value) => {
     const begin_year = value.begin_year;
     const end_month = value.end_month;
     const end_year = value.end_year;
+    let description = value.description;
+    !description ? description = '' : description;
 
     displayHTML += `
         <section class="form-container-revision form-container-revision-${id}">
@@ -46,6 +48,7 @@ i.forEach((value) => {
             </button>
             <p class="form-title-revision-2">${institution}</p>
             <p class="form-title-revision-3">${begin_month}/${begin_year} a ${end_month}/${end_year}</p>
+            <p class="form-revision-description">${description}</p>
         </section>
         `
 })
@@ -54,7 +57,9 @@ container.innerHTML = displayHTML;
 }
 
 export function removeFromForm(page) {
-    form.courses.forEach((course) => {
+    let i = page === 'education' ? form.courses : form.experiences;
+    
+    i.forEach((course) => {
     const id = course.id;
     const bin = document.querySelector(`.bin-${page}-${id}`);
     const containerItem = document.querySelector(`.form-container-revision-${id}`); 
@@ -62,7 +67,12 @@ export function removeFromForm(page) {
     bin.addEventListener('click', () => {
         containerItem.remove();
 
-        form.courses = form.courses.filter((c) => c.id !== id);
+        i.forEach((page, index) => {
+            if (page.id === id) {
+                i.splice(index, 1);
+                return;
+            }
+        });
         console.log(form)
 
         saveToStorage();

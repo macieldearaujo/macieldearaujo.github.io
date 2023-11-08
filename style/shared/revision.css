@@ -81,3 +81,8 @@
 .form-container-course {
     width: 100%;
 }
+
+.form-revision-description {
+    font-size: 14px;
+    color: #595959;
+}

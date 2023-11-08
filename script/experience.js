@@ -13,9 +13,9 @@ function checkInput(page) {
         const begin_year = document.querySelector('.js-form-input-begin-year').value;
         const end_month = document.querySelector('.js-form-input-end-month').value;
         const end_year = document.querySelector('.js-form-input-end-year').value;
-        const description = document.querySelector('.js-form-input-description')
+        const description = document.querySelector('.js-form-input-description').textContent;
 
-        if (!name || !institution || !begin_month || !begin_year || !end_month || !end_year || !description) {
+        if (!name || !institution || !begin_month || !begin_year || !end_month || !end_year) {
             displayAlert();
         } else if (begin_month === 'default' || begin_year === 'default' || end_month === 'default' || end_year === 'default') {
             displayAlert();
@@ -35,6 +35,7 @@ function checkInput(page) {
                 begin_year,
                 end_month,
                 end_year,
+                description
             };
             
             form.experiences.push(experience);
