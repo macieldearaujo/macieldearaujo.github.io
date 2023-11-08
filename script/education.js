@@ -7,18 +7,18 @@ function checkInput(page) {
     const continueButton = document.querySelector(`.js-form-button-continue-${page}`);
 
     continueButton.addEventListener('click', () => {
-        const course_name = document.querySelector('.js-form-input-course').value;
-        const course_institution = document.querySelector('.js-form-input-institution').value;
-        const course_begin_month = document.querySelector('.js-form-input-begin-month').value;
-        const course_begin_year = document.querySelector('.js-form-input-begin-year').value;
-        const course_end_month = document.querySelector('.js-form-input-end-month').value;
-        const course_end_year = document.querySelector('.js-form-input-end-year').value;
+        const name = document.querySelector('.js-form-input-course').value;
+        const institution = document.querySelector('.js-form-input-institution').value;
+        const begin_month = document.querySelector('.js-form-input-begin-month').value;
+        const begin_year = document.querySelector('.js-form-input-begin-year').value;
+        const end_month = document.querySelector('.js-form-input-end-month').value;
+        const end_year = document.querySelector('.js-form-input-end-year').value;
 
-        if (!course_name || !course_institution || !course_begin_month || !course_begin_year || !course_end_month || !course_end_year) {
+        if (!name || !institution || !begin_month || !begin_year || !end_month || !end_year) {
             displayAlert();
-        } else if (course_begin_month === 'default' || course_begin_year === 'default' || course_end_month === 'default' || course_end_year === 'default') {
+        } else if (begin_month === 'default' || begin_year === 'default' || end_month === 'default' || end_year === 'default') {
             displayAlert();
-        } else if (course_begin_year > course_end_year || (course_begin_year === course_end_year && course_begin_month > course_end_month)) {
+        } else if (begin_year > end_year || (begin_year === end_year && begin_month > end_month)) {
             displayAlert();
         } else {
             addToForm();
@@ -27,13 +27,13 @@ function checkInput(page) {
 
         function addToForm() {
             const courses = {
-                course_id: form.courses.length,
-                course_name,
-                course_institution,
-                course_begin_month,
-                course_begin_year,
-                course_end_month,
-                course_end_year,
+                id: form.courses.length,
+                name: name,
+                institution: institution,
+                begin_month: begin_month,
+                begin_year: begin_year,
+                end_month: end_month,
+                end_year: end_year,
             };
             
             form.courses.push(courses);

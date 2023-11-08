@@ -1,38 +1,10 @@
-import { form, saveToStorage, removeFromForm } from '../data/form.js'
+import { form, saveToStorage, removeFromForm, displayOnScreen } from '../data/form.js'
 
 const page = 'education'
 
+checkInput(page);
+
 displayOnScreen(page);
-
-function displayOnScreen(page) {
-    checkInput(page);
-    
-    const container = document.querySelector('.form-container-course');
-    let courseHTML = '';
-
-form.courses.forEach((course) => {
-    const course_id = course.course_id;
-    const course_name = course.course_name;
-    const course_institution = course.course_institution;
-    const course_begin_month = course.course_begin_month;
-    const course_begin_year = course.course_begin_year;
-    const course_end_month = course.course_end_month;
-    const course_end_year = course.course_end_year;
-
-    courseHTML += `
-        <section class="form-container-revision form-container-revision-${course_id}">
-            <h3 class="form-title-revision-1">${course_name}</h3>
-            <button class="bin-img bin-${page}-${course_id}">
-                <img src="img/bin.png" style="width: 24px;">
-            </button>
-            <p class="form-title-revision-2">${course_institution}</p>
-            <p class="form-title-revision-3">${course_begin_month}/${course_begin_year} a ${course_end_month}/${course_end_year}</p>
-        </section>
-        `
-})
-
-container.innerHTML = courseHTML;
-}
 
 const continueButton = document.querySelector('.js-form-button-add-education');
 
