@@ -4,7 +4,7 @@ if (!form) {
     form = {};
 }
 
-function saveToStorage() {
+export function saveToStorage() {
     localStorage.setItem('form', JSON.stringify(form));
 }
 
@@ -15,10 +15,7 @@ export function submit() {
     const marital_status = document.querySelector('.js-form-input-maritial-status').value;
     const country = document.querySelector('.js-form-input-country').value;
     const city = document.querySelector('.form-input[name="city"]').value;
-    const neighborhood = document.querySelector('.js-form-input-neighborhood').value;
-    
-    
-    
+    const neighborhood = document.querySelector('.js-form-input-neighborhood').value;    
 
     if (!name || !email || !phone || !marital_status || !country || !city) {
         displayAlert();
@@ -50,9 +47,7 @@ export function checkInputs(page) {
     })
 }
 
-let addedMessageTimeoutId;
-
-function displayAlert() {
+export function displayAlert() {
     const addedMessage = document.querySelectorAll('.form-input');
 
     addedMessage.forEach((value) => {
