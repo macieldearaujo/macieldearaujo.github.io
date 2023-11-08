@@ -27,12 +27,12 @@ function checkInput(page) {
 
         function addToForm() {
             const courses = {
-                course_name: course_name,
-                course_institution: course_institution,
-                course_begin_month: course_begin_month,
-                course_begin_year: course_begin_year,
-                course_end_month: course_end_month,
-                course_end_year: course_end_year,
+                course_name,
+                course_institution,
+                course_begin_month,
+                course_begin_year,
+                course_end_month,
+                course_end_year,
             };
             
             form.courses.push(courses);
