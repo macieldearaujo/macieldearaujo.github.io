@@ -49,5 +49,10 @@ form.courses.forEach((course) => {
 
     bin.addEventListener('click', () => {
         containerItem.remove();
+
+        form.courses = form.courses.filter((c) => c.course_id !== course_id);
+        console.log(form)
+
+        saveToStorage();
     })
 })
