@@ -27,6 +27,7 @@ function checkInput(page) {
 
         function addToForm() {
             const courses = {
+                course_id: form.courses.length,
                 course_name,
                 course_institution,
                 course_begin_month,
