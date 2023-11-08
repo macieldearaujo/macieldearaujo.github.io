@@ -208,6 +208,7 @@ hr {
 }
 
 .form-input-alert {
+    border-color: #072959;
     animation: tremer 0.5s ease infinite;
 }
 

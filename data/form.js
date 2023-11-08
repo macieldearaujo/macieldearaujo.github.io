@@ -8,8 +8,20 @@ function saveToStorage() {
     localStorage.setItem('form', JSON.stringify(form));
 }
 
-export function consoleForm(page) {
+export function submit() {
+    const name = document.querySelector('input[name="name"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const phone = document.querySelector('.form-input[name="phone"]').value;
+    const marital_status = document.querySelector('.js-form-input-maritial-status').value;
+    const country = document.querySelector('.js-form-input-country').value;
+    const city = document.querySelector('.form-input[name="city"]').value;
+    const neighborhood = document.querySelector('.js-form-input-neighborhood').value;
 
+    if (!name || !email || !phone || !marital_status || !country || !city) {
+        displayAlert();
+    } else {
+        window.location.href = 'education.html';
+    }
 
     form.personalInformations = {};
     form.personalInformations.name = name;
@@ -31,31 +43,20 @@ export function checkInputs(page) {
     continueButton.addEventListener('click', () => {
 
         // console.log(form.length, form)
-        displayAlert();
-        consoleForm(page)
+        submit()
     })
 }
 
 let addedMessageTimeoutId;
 
 function displayAlert() {
-    const name = document.querySelector('input[name="name"]').value;
-    const email = document.querySelector('input[name="email"]').value;
-    const phone = document.querySelector('.form-input[name="phone"]').value;
-    const marital_status = document.querySelector('.js-form-input-maritial-status').value;
-    const country = document.querySelector('.js-form-input-country').value;
-    const city = document.querySelector('.form-input[name="city"]').value;
-    const neighborhood = document.querySelector('.js-form-input-neighborhood').value;
+    const addedMessage = document.querySelectorAll('.form-input');
 
-    if (!name || !email || !phone || !marital_status || !country || !city || !neighborhood) {
-        const addedMessage = document.querySelectorAll('.form-input');
-
-        addedMessage.forEach((value) => {
-            value.classList.add('form-input-alert');
+    addedMessage.forEach((value) => {
+        value.classList.add('form-input-alert');
 
         setTimeout(() => {
             value.classList.remove('form-input-alert');
         }, 200);
-        })
-    }
+    })
 }
