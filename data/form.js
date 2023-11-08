@@ -26,8 +26,10 @@ export function displayAlert() {
 export function displayOnScreen(page) {    
     const container = document.querySelector('.form-container');
     let displayHTML = '';
+    let i;
+    page === 'education' ? i = form.courses : i = form.experiences;
 
-form.courses.forEach((value) => {
+i.forEach((value) => {
     const id = value.id;
     const name = value.name;
     const institution = value.institution;

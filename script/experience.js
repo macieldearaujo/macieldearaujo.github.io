@@ -7,15 +7,15 @@ function checkInput(page) {
     const continueButton = document.querySelector(`.js-form-button-continue-${page}`);
 
     continueButton.addEventListener('click', () => {
-        const position = document.querySelector('.js-form-input-position').value;
-        const company = document.querySelector('.js-form-input-company').value;
+        const name = document.querySelector('.js-form-input-position').value;
+        const institution = document.querySelector('.js-form-input-company').value;
         const begin_month = document.querySelector('.js-form-input-begin-month').value;
         const begin_year = document.querySelector('.js-form-input-begin-year').value;
         const end_month = document.querySelector('.js-form-input-end-month').value;
         const end_year = document.querySelector('.js-form-input-end-year').value;
         const description = document.querySelector('.js-form-input-description')
 
-        if (!position || !company || !begin_month || !begin_year || !end_month || !end_year || !description) {
+        if (!name || !institution || !begin_month || !begin_year || !end_month || !end_year || !description) {
             displayAlert();
         } else if (begin_month === 'default' || begin_year === 'default' || end_month === 'default' || end_year === 'default') {
             displayAlert();
@@ -29,8 +29,8 @@ function checkInput(page) {
         function addToForm() {
             const experience = {
                 id: form.experiences.length,
-                position,
-                company,
+                name,
+                institution,
                 begin_month,
                 begin_year,
                 end_month,
