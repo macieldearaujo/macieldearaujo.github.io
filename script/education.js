@@ -16,6 +16,10 @@ function checkInput(page) {
 
         if (!course_name || !course_institution || !course_begin_month || !course_begin_year || !course_end_month || !course_end_year) {
             displayAlert();
+        } else if (course_begin_month === 'default' || course_begin_year === 'default' || course_end_month === 'default' || course_end_year === 'default') {
+            displayAlert();
+        } else if (course_begin_year > course_end_year || (course_begin_year === course_end_year && course_begin_month > course_end_month)) {
+            displayAlert();
         } else {
             window.location.href = 'education revision.html';
         }
