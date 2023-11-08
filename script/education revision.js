@@ -2,20 +2,17 @@ import { form, displayAlert, saveToStorage } from '../data/form.js'
 
 checkInput('education-revision');
 
-inner();
+const course_name = form.courses.course_name;
+const course_institution = form.courses.course_institution;
+const course_begin_month = form.courses.course_begin_month;
+const course_begin_year = form.courses.course_begin_year;
+const course_end_month = form.courses.course_end_month;
+const course_end_year = form.courses.course_end_year;
 
-function inner() {
-    const course_name = form.courses.course_name;
-    const course_institution = form.courses.course_institution;
-    const course_begin_month = form.courses.course_begin_month;
-    const course_begin_year = form.courses.course_begin_year;
-    const course_end_month = form.courses.course_end_month;
-    const course_end_year = form.courses.course_end_year;
+const container = document.querySelector('.form-container-course')
+let courseHTML = '';
 
-    const container = document.querySelector('.form-container-course')
-    let iner = '';
-
-    iner += `
+courseHTML += `
     <section class="form-section">
     <h2 class="form-title-topic">Revise o seu histórico escolar:</h2>
     <section class="form-container-revision">
@@ -24,12 +21,16 @@ function inner() {
             <img src="img/bin.png" style="width: 24px;">
         </button>
         <p class="form-title-revision-2">${course_institution}</p>
-        <p class="form-title-revision-3">${course_begin_month} ${course_begin_year} a ${course_end_month} ${course_end_year}</p>
+        <p class="form-title-revision-3">${course_begin_month}/${course_begin_year} a ${course_end_month}/${course_end_year}</p>
     </section>
     `
+container.innerHTML = courseHTML
 
-    container.innerHTML = iner
-}
+const continueButton = document.querySelector('.js-form-button-add-education-revision');
+
+continueButton.addEventListener('click', () => {
+    window.location.href = 'education.html';
+})
 
 function checkInput(page) {
     console.log(form)
