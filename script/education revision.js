@@ -1,6 +1,8 @@
-import { form, saveToStorage } from '../data/form.js'
+import { form, saveToStorage, removeFromForm } from '../data/form.js'
 
-checkInput('education-revision');
+const page = 'education-revision'
+
+checkInput(page);
 
 const container = document.querySelector('.form-container-course');
 let courseHTML = '';
@@ -17,7 +19,7 @@ form.courses.forEach((course) => {
     courseHTML += `
         <section class="form-container-revision form-container-revision-${course_id}">
             <h3 class="form-title-revision-1">${course_name}</h3>
-            <button class="bin-img bin-${course_id}">
+            <button class="bin-img bin-${page}-${course_id}">
                 <img src="img/bin.png" style="width: 24px;">
             </button>
             <p class="form-title-revision-2">${course_institution}</p>
@@ -42,17 +44,4 @@ function checkInput(page) {
     })
 }
 
-form.courses.forEach((course) => {
-    const course_id = course.course_id;
-    const bin = document.querySelector(`.bin-${course_id}`);
-    const containerItem = document.querySelector(`.form-container-revision-${course_id}`); 
-
-    bin.addEventListener('click', () => {
-        containerItem.remove();
-
-        form.courses = form.courses.filter((c) => c.course_id !== course_id);
-        console.log(form)
-
-        saveToStorage();
-    })
-})
+removeFromForm(page);
