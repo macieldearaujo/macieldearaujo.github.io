@@ -9,17 +9,23 @@ const addButton_ability = document.querySelector('.js-add-ability');
 
 console.log(form);
 
-displayOnScreen();
-
 addButton_idiom.addEventListener('click', () => {
-    addIdiom();
-    displayOnScreen();
-    console.log(form);
-    saveToStorage();
+    addToForm_Idiom();
+    displayIdiom();
+    save();
 })
 
-function displayOnScreen() {
-    let displayHTML_idiom;
+addButton_ability.addEventListener('click', () => {
+    addToForm_Ability();
+    displayAbility();
+    save();
+})
+
+displayIdiom();
+displayAbility();
+
+function displayIdiom() {
+    let displayHTML_idiom = '';
 
     form.idioms.forEach((value) => {
         const language = value.language;
@@ -40,35 +46,30 @@ function displayOnScreen() {
     })
     document.querySelector('.idiom-container-result').innerHTML = displayHTML_idiom;
 }
-let displayHTML_ability;
 
-// addButton_ability.addEventListener('click', () => {
-//     const ability = document.querySelector('.js-form-input-ability').value;
+function displayAbility() {
+    let displayHTML_ability = '';
 
-//     if (!ability) {
-//         displayAlert();
-//     } else {
-//         displayHTML_ability += `
-//     <div class="form-skills-container">
-//         <p class="form-skills-title">${ability}</p>
-//         <button class="bin-img bin-img-skills">
-//             <img src="img/bin.png" style="width: 18px;">
-//         </button>
-//     </div>    
-//     `
-//         document.querySelector('.ability-container-result').innerHTML = displayHTML_ability;
-//     }
-// })
+    form.abilities.forEach((value) => {
+        const ability = value.ability;
 
-continueButton.addEventListener('click', addToForm)
-
-function addToForm() {
-
-    saveToStorage();
-    console.log(form);
+        if (!ability) {
+            displayAlert();
+        } else {
+            displayHTML_ability += `
+            <div class="form-skills-container">
+                <p class="form-skills-title">${ability}</p>
+                <button class="bin-img bin-img-skills">
+                    <img src="img/bin.png" style="width: 18px;">
+                </button>
+            </div>    
+    `
+        }
+    })
+    document.querySelector('.ability-container-result').innerHTML = displayHTML_ability;
 }
 
-function addIdiom() {
+function addToForm_Idiom() {
     const language = document.querySelector('.js-form-input-language').value;
     const proficiency = document.querySelector('.js-form-input-proficiency').value;
 
@@ -81,13 +82,18 @@ function addIdiom() {
     form.idioms.push(idiomObject)
 }
 
-function addAbility() {
+function addToForm_Ability() {
     const ability = document.querySelector('.js-form-input-ability').value;
 
     const abilityObject = {
-        id: form.abilitys.length,
+        id: form.abilities.length,
         ability
     }
 
-    form.abilitys.push(abilityObject)
+    form.abilities.push(abilityObject)
+}
+
+function save() {
+    console.log(form);
+    saveToStorage();
 }

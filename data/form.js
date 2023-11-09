@@ -5,7 +5,7 @@ if (!form) {
         courses: [],
         experiences: [],
         idioms: [],
-        abilitys: []
+        abilities: []
     };
 }
 
