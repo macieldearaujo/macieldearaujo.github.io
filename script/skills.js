@@ -9,8 +9,11 @@ const addButton_ability = document.querySelector('.js-add-ability');
 
 console.log(form);
 
-addButton_idiom.addEventListener('click', () => {
+addButton_idiom.addEventListener('click', displayOnScreen)
 
+displayOnScreen()
+
+function displayOnScreen() {
     let displayHTML_idiom;
 
     addIdiom();
@@ -34,8 +37,7 @@ addButton_idiom.addEventListener('click', () => {
     console.log(form)
     saveToStorage();
     document.querySelector('.idiom-container-result').innerHTML = displayHTML_idiom;
-})
-
+}
 let displayHTML_ability;
 
 // addButton_ability.addEventListener('click', () => {
