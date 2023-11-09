@@ -24,7 +24,7 @@
         </span>
     </div>
     <main class="form">
-        <section class="form-section">
+        <form class="form-section">
             <h2 class="form-title-topic">Idiomas:</h2>
             <div class="form-skills-container">
                 <p class="form-skills-title">Inglês - Intermediário</p>
@@ -38,7 +38,7 @@
             </div>
             <div class="form-container-grid-3">
                 <div>
-                    <select name="languages" class="form-input" required>
+                    <select name="languages" class="form-input js-form-input-language" required>
                         <option value="default" selected>Selecione aqui</option>
                         <option value="english">Inglês</option>
                         <option value="spanish">Espanhol</option>
@@ -60,11 +60,10 @@
                         <option value="tamil">Tâmil</option>
                         <option value="urdu">Urdu</option>
                         <option value="italian">Italiano</option>
-
                     </select>
                 </div>
                 <div>
-                    <select name="levels" class="form-input" required>
+                    <select name="levels" class="form-input js-form-input-proficiency" required>
                         <option value="default" selected>Selecione aqui</option>
                         <option value="beginner">Iniciante</option>
                         <option value="intermediary">Intermediário</option>
@@ -73,7 +72,7 @@
                         <option value="native">Nativo</option>
                     </select>
                 </div>
-                <button class="form-button-add-2">+</button>
+                <button class="form-button-add-2 js-add-idiom">+</button>
             </div>
             <hr>
             <h2 class="form-title-topic">Habilidades e competências:</h2>
@@ -84,13 +83,14 @@
                 </button>
             </div>
             <div class="form-container-grid-4">
-                <input class="form-input" placeholder="Digite aqui a habilidade">
-                <button class="form-button-add-2">+</button>
+                <input class="form-input js-form-input-ability" placeholder="Digite aqui a habilidade">
+                <button class="form-button-add-2 js-add-ability">+</button>
             </div>
             <br>
-            <a href="skills.html"><button class="form-button-continue">Finalizar</button></a>
-        </section>
+            <button class="form-button-continue js-form-button-continue-skills">Finalizar</button>
+        </form>
     </main>
+    <script type="module" src="script/skills.js"></script>
 </body>
 
 </html>

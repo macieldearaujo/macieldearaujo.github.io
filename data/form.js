@@ -3,7 +3,8 @@ export let form = JSON.parse(localStorage.getItem('form'));
 if (!form) {
     form = {
         courses: [],
-        experiences: []
+        experiences: [],
+        skills: []
     };
 }
 
