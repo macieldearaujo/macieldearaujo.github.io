@@ -4,7 +4,8 @@ if (!form) {
     form = {
         courses: [],
         experiences: [],
-        skills: []
+        idioms: [],
+        abilitys: []
     };
 }
 

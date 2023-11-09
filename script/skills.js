@@ -10,31 +10,80 @@ const addButton_ability = document.querySelector('.js-add-ability');
 console.log(form);
 
 addButton_idiom.addEventListener('click', () => {
+
+    let displayHTML_idiom;
+
+    addIdiom();
+    form.idioms.forEach((value) => {
+        const language = value.language;
+        const proficiency = value.proficiency;
+
+        if (language === 'default' || proficiency === 'default') {
+            displayAlert();
+        } else {
+            displayHTML_idiom += `
+    <div class="form-skills-container js-idiom-container">
+        <p class="form-skills-title">${language} - ${proficiency}</p>
+        <button class="bin-img bin-img-skills">
+            <img src="img/bin.png" style="width: 18px;">
+        </button>
+    </div>
+    `
+        }
+    })
     console.log(form)
+    saveToStorage();
+    document.querySelector('.idiom-container-result').innerHTML = displayHTML_idiom;
 })
 
-addButton_ability.addEventListener('click', () => {
+let displayHTML_ability;
 
-})
+// addButton_ability.addEventListener('click', () => {
+//     const ability = document.querySelector('.js-form-input-ability').value;
+
+//     if (!ability) {
+//         displayAlert();
+//     } else {
+//         displayHTML_ability += `
+//     <div class="form-skills-container">
+//         <p class="form-skills-title">${ability}</p>
+//         <button class="bin-img bin-img-skills">
+//             <img src="img/bin.png" style="width: 18px;">
+//         </button>
+//     </div>    
+//     `
+//         document.querySelector('.ability-container-result').innerHTML = displayHTML_ability;
+//     }
+// })
 
 continueButton.addEventListener('click', addToForm)
 
 function addToForm() {
+
+    saveToStorage();
+    console.log(form);
+}
+
+function addIdiom() {
     const language = document.querySelector('.js-form-input-language').value;
-    const level = document.querySelector('.js-form-input-proficiency').value;
+    const proficiency = document.querySelector('.js-form-input-proficiency').value;
+
+    const idiomObject = {
+        id: form.idioms.length,
+        language,
+        proficiency
+    }
+
+    form.idioms.push(idiomObject)
+}
+
+function addAbility() {
     const ability = document.querySelector('.js-form-input-ability').value;
 
-
-    const courses = {
-        id: form.courses.length,
-        language,
-        level,
+    const abilityObject = {
+        id: form.abilitys.length,
         ability
     }
 
-    form.skills.push(courses)
-
-    saveToStorage();
-
-    console.log(form);
+    form.abilitys.push(abilityObject)
 }
