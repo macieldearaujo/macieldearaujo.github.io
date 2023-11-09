@@ -9,14 +9,18 @@ const addButton_ability = document.querySelector('.js-add-ability');
 
 console.log(form);
 
-addButton_idiom.addEventListener('click', displayOnScreen)
+displayOnScreen();
 
-displayOnScreen()
+addButton_idiom.addEventListener('click', () => {
+    addIdiom();
+    displayOnScreen();
+    console.log(form);
+    saveToStorage();
+})
 
 function displayOnScreen() {
     let displayHTML_idiom;
 
-    addIdiom();
     form.idioms.forEach((value) => {
         const language = value.language;
         const proficiency = value.proficiency;
@@ -34,8 +38,6 @@ function displayOnScreen() {
     `
         }
     })
-    console.log(form)
-    saveToStorage();
     document.querySelector('.idiom-container-result').innerHTML = displayHTML_idiom;
 }
 let displayHTML_ability;
