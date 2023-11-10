@@ -18,7 +18,7 @@ function checkInput(page) {
         if (!name || !email || !phone || !marital_status || !country || !city) {
             displayAlert();
         } else {
-            nextPage('../education.html');
+            nextPage('education.html');
         }
 
         form.personalInformations = {};

@@ -17,7 +17,7 @@ function checkInput(page) {
     const continueButton = document.querySelector(`.js-form-button-continue-${page}`);
 
     continueButton.addEventListener('click', () => {
-        nextPage('../experience.html');
+        nextPage('experience.html');
     })
 }
 

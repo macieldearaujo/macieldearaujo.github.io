@@ -23,7 +23,7 @@ function checkInput(page) {
             displayAlert();
         } else {
             addToForm();
-            nextPage('../experience revision.html');
+            nextPage('experience revision.html');
         }
 
         function addToForm() {

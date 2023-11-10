@@ -22,7 +22,7 @@ function checkInput(page) {
             displayAlert();
         } else {
             addToForm();
-            nextPage('../education revision.html');
+            nextPage('education revision.html');
         }
 
         function addToForm() {
