@@ -4,7 +4,7 @@ const page = 'education'
 
 checkInput(page);
 
-displayOnScreen(page);
+displayOnScreen(page, form.courses);
 
 const addButton = document.querySelector(`.js-form-button-add-${page}`);
 

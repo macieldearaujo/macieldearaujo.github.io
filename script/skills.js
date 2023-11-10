@@ -11,12 +11,14 @@ addButton_idiom.addEventListener('click', () => {
     addToForm_Idiom();
     displayIdiom();
     save();
+    removeFromForm('idioms', form.idioms);
 })
 
 addButton_ability.addEventListener('click', () => {
     addToForm_Ability();
     displayAbility();
     save();
+    removeFromForm('abilities', form.abilities);
 })
 
 displayIdiom();
@@ -34,7 +36,7 @@ function displayIdiom() {
             displayAlert();
         } else {
             displayHTML_idiom += `
-    <div class="form-idioms-container js-container-${id}">
+    <div class="form-idioms-container js-container-${'idioms'}-${id}">
         <p class="form-skills-title">${language} - ${proficiency}</p>
         <button class="bin-img bin-${'idioms'}-${id}">
             <img src="img/bin.png" style="width: 18px;">
@@ -57,7 +59,7 @@ function displayAbility() {
             displayAlert();
         } else {
             displayHTML_ability += `
-            <div class=" form-abilities-container js-container-${id}">
+            <div class=" form-abilities-container js-container-${'abilities'}-${id}">
                 <p class="form-skills-title">${ability}</p>
                 <button class="bin-img bin-${'abilities'}-${id}">
                     <img src="img/bin.png" style="width: 18px;">

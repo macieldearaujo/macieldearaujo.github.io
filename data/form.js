@@ -25,13 +25,11 @@ export function displayAlert() {
     })
 }
 
-export function displayOnScreen(page) {    
+export function displayOnScreen(page, parameter) {    
     const container = document.querySelector('.form-container');
     let displayHTML = '';
-    let i;
-    page === 'education' ? i = form.courses : i = form.experiences;
-
-i.forEach((value) => {
+    
+    parameter.forEach((value) => {
     const id = value.id;
     const name = value.name;
     const institution = value.institution;
@@ -43,7 +41,7 @@ i.forEach((value) => {
     !description ? description = '' : description;
 
     displayHTML += `
-        <section class="form-container-revision js-container-${id}">
+        <section class="form-container-revision js-container-${page}-${id}">
             <h3 class="form-title-revision-1">${name}</h3>
             <button class="bin-img bin-${page}-${id}">
                 <img src="img/bin.png" style="width: 24px;">
@@ -58,12 +56,12 @@ i.forEach((value) => {
 container.innerHTML = displayHTML;
 }
 
-export function removeFromForm(page, parameter) {
+export function removeFromForm(object, parameter) {
     parameter.forEach((item) => {
     const id = item.id;
-    const bin = document.querySelector(`.bin-${page}-${id}`); 
-    const containerItem = document.querySelector(`.js-container-${id}`); 
-
+    const bin = document.querySelector(`.bin-${object}-${id}`);
+    const containerItem = document.querySelector(`.js-container-${object}-${id}`);
+    
     bin.addEventListener('click', () => {
         containerItem.remove();
 
@@ -74,7 +72,6 @@ export function removeFromForm(page, parameter) {
             }
         });
         console.log(form)
-
         saveToStorage();
     })
 })

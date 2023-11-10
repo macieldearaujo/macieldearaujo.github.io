@@ -4,7 +4,7 @@ const page = 'experience'
 
 checkInput(page);
 
-displayOnScreen(page);
+displayOnScreen(page, form.experiences);
 
 const addButton = document.querySelector(`.js-form-button-add-${page}`);
 
