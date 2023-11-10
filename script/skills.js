@@ -72,8 +72,11 @@ function displayAbility() {
 }
 
 function addToForm_Idiom() {
-    const language = document.querySelector('.js-form-input-language').value;
-    const proficiency = document.querySelector('.js-form-input-proficiency').value;
+    const languageElement = document.querySelector('.js-form-input-language');
+    const proficiencyElement = document.querySelector('.js-form-input-proficiency');
+
+    const language = languageElement.options[languageElement.selectedIndex].text;
+    const proficiency = proficiencyElement.options[proficiencyElement.selectedIndex].text;
 
     const idiomObject = {
         id: form.idioms.length,
