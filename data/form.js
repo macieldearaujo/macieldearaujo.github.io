@@ -43,7 +43,7 @@ i.forEach((value) => {
     !description ? description = '' : description;
 
     displayHTML += `
-        <section class="form-container-revision form-container-revision-${id}">
+        <section class="form-container-revision js-container-${id}">
             <h3 class="form-title-revision-1">${name}</h3>
             <button class="bin-img bin-${page}-${id}">
                 <img src="img/bin.png" style="width: 24px;">
@@ -58,28 +58,18 @@ i.forEach((value) => {
 container.innerHTML = displayHTML;
 }
 
-export function removeFromForm(page) {
-    let i;
-    
-    if(page === 'education') {
-        i = form.courses;
-    } else if (page === 'experience') {
-        i = form.experiences;
-    } else if(page === 'idioms') {
-        i = form.idioms;
-    }
-
-    i.forEach((course) => {
-    const id = course.id;
-    const bin = document.querySelector(`.bin-${page}-${id}`); //
-    const containerItem = document.querySelector(`.form-container-revision-${id}`); 
+export function removeFromForm(page, parameter) {
+    parameter.forEach((item) => {
+    const id = item.id;
+    const bin = document.querySelector(`.bin-${page}-${id}`); 
+    const containerItem = document.querySelector(`.js-container-${id}`); 
 
     bin.addEventListener('click', () => {
         containerItem.remove();
 
-        i.forEach((page, index) => {
+        parameter.forEach((page, index) => {
             if (page.id === id) {
-                i.splice(index, 1);
+                parameter.splice(index, 1);
                 return;
             }
         });

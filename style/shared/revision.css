@@ -62,13 +62,6 @@
 }
 
 /* Skills */
-.form-skills-container {
-    margin: 20px 0px;
-    border: 1px solid rgb(189, 189, 189);
-    border-radius: 10px;
-    padding: 2px 15px;
-    font-weight: bold;
-}
 
 .form-skills-title {
     width: 92%;

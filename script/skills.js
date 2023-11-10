@@ -34,9 +34,9 @@ function displayIdiom() {
             displayAlert();
         } else {
             displayHTML_idiom += `
-    <div class="form-skills-container js-idiom-container">
+    <div class="form-idioms-container js-container-${id}">
         <p class="form-skills-title">${language} - ${proficiency}</p>
-        <button class="bin-img bin-${page}-${id}">
+        <button class="bin-img bin-${'idioms'}-${id}">
             <img src="img/bin.png" style="width: 18px;">
         </button>
     </div>
@@ -50,15 +50,16 @@ function displayAbility() {
     let displayHTML_ability = '';
 
     form.abilities.forEach((value) => {
+        const id = value.id;
         const ability = value.ability;
 
         if (!ability) {
             displayAlert();
         } else {
             displayHTML_ability += `
-            <div class="form-skills-container">
+            <div class=" form-abilities-container js-container-${id}">
                 <p class="form-skills-title">${ability}</p>
-                <button class="bin-img bin-img-skills">
+                <button class="bin-img bin-${'abilities'}-${id}">
                     <img src="img/bin.png" style="width: 18px;">
                 </button>
             </div>    
@@ -77,8 +78,9 @@ function addToForm_Idiom() {
         language,
         proficiency
     }
-
+    if (language !== 'default' || proficiency !== 'default') {
     form.idioms.push(idiomObject)
+}
 }
 
 function addToForm_Ability() {
@@ -88,8 +90,9 @@ function addToForm_Ability() {
         id: form.abilities.length,
         ability
     }
-
+    if (ability) {
     form.abilities.push(abilityObject)
+}
 }
 
 function save() {
@@ -97,4 +100,5 @@ function save() {
     saveToStorage();
 }
 
-removeFromForm('idioms');
+removeFromForm('idioms', form.idioms);
+removeFromForm('abilities', form.abilities);

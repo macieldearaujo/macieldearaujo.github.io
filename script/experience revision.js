@@ -21,4 +21,4 @@ function checkInput(page) {
     })
 }
 
-removeFromForm(page);
+removeFromForm(page, form.experiences);
