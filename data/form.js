@@ -59,11 +59,19 @@ container.innerHTML = displayHTML;
 }
 
 export function removeFromForm(page) {
-    let i = page === 'education' ? form.courses : form.experiences;
+    let i;
     
+    if(page === 'education') {
+        i = form.courses;
+    } else if (page === 'experience') {
+        i = form.experiences;
+    } else if(page === 'idioms') {
+        i = form.idioms;
+    }
+
     i.forEach((course) => {
     const id = course.id;
-    const bin = document.querySelector(`.bin-${page}-${id}`);
+    const bin = document.querySelector(`.bin-${page}-${id}`); //
     const containerItem = document.querySelector(`.form-container-revision-${id}`); 
 
     bin.addEventListener('click', () => {

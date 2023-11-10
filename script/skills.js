@@ -1,8 +1,6 @@
-import { form, displayAlert, saveToStorage } from '../data/form.js'
+import { form, displayAlert, saveToStorage, removeFromForm } from '../data/form.js'
 
 const page = 'skills'
-
-const continueButton = document.querySelector(`.js-form-button-continue-${page}`);
 
 const addButton_idiom = document.querySelector('.js-add-idiom');
 const addButton_ability = document.querySelector('.js-add-ability');
@@ -28,6 +26,7 @@ function displayIdiom() {
     let displayHTML_idiom = '';
 
     form.idioms.forEach((value) => {
+        const id = value.id;
         const language = value.language;
         const proficiency = value.proficiency;
 
@@ -37,7 +36,7 @@ function displayIdiom() {
             displayHTML_idiom += `
     <div class="form-skills-container js-idiom-container">
         <p class="form-skills-title">${language} - ${proficiency}</p>
-        <button class="bin-img bin-img-skills">
+        <button class="bin-img bin-${page}-${id}">
             <img src="img/bin.png" style="width: 18px;">
         </button>
     </div>
@@ -97,3 +96,5 @@ function save() {
     console.log(form);
     saveToStorage();
 }
+
+removeFromForm('idioms');
