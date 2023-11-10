@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculo Online</title>
+    <link rel="stylesheet" href="style/shared/header.css">
+    <link rel="stylesheet" href="style/shared/revision general.css">
+    <link rel="stylesheet" href="style/shared/loading.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <!-- Page 1 -->
+</head>
+
+<body>
+    <header>
+        <h1>Resume Generator</h1>
+    </header>
+    <div class="content-wrapper">
+        <span class="page-marker-div">
+            <a class="page-maker page-marker-selected" href="index.html"></a>
+            <a class="page-maker" href="education.html"></a>
+            <a class="page-maker" href="experience.html"></a>
+            <a class="page-maker" href="skills.html"></a>
+        </span>
+    </div>
+    <main class="form">
+        <section class="form-section">
+            <h2 class="title">Seu currículo está pronto?</h2>
+            <p class="header-subtitle">Revise e faça as alterações necessárias abaixo.</p>
+
+            <hr>
+
+            <h2 class="title">Douglas Maciel de Araújo</h2>
+
+            <p class="usrInfo">(11) 95872-6955</p>
+            <p class="usrInfo">douglasmacielaraujo@outlook.com</p>
+            <p class="usrInfo">Vila Formosa, São Paulo, Brazil</p>
+
+            <h2 class="title">Escolaridade</h2>
+
+            <section class="container-revision js-container-${page}-${id}">
+                <h3 class="title-revision-1">Técnico em Automação Industrial</h3>
+                <button class="icon-img icon-${page}-${id}">
+                    <img src="img/pencil.png" style="width: 18px;">
+                </button>
+                <button class="icon-img icon-${page}-${id}">
+                    <img src="img/bin.png" style="width: 18px;">
+                </button>
+                <p class="title-revision-2">Etec Martin Luther King</p>
+                <p class="title-revision-3">Fevereiro 2019 a dezembro 2021</p>
+                <p class="revision-description"></p>
+            </section>
+
+            <section class="container-revision js-container-${page}-${id}">
+                <h3 class="title-revision-1">Técnico em Mecânica Industrial</h3>
+                <button class="icon-img icon-${page}-${id}">
+                    <img src="img/pencil.png" style="width: 18px;">
+                </button>
+                <button class="icon-img icon-${page}-${id}">
+                    <img src="img/bin.png" style="width: 18px;">
+                </button>
+                <p class="title-revision-2">Etec Martin Luther King</p>
+                <p class="title-revision-3">Fevereiro 2022 a julho 2023</p>
+                <p class="revision-description"></p>
+            </section>
+
+            <h2 class="title">Experiências Profissionais</h2>
+
+            <section class="container-revision js-container-${page}-${id}">
+                <h3 class="title-revision-1">Aprendiz em Processos Industriais</h3>
+                <button class="icon-img icon-${page}-${id}">
+                    <img src="img/pencil.png" style="width: 18px;">
+                </button>
+                <button class="icon-img icon-${page}-${id}">
+                    <img src="img/bin.png" style="width: 18px;">
+                </button>
+                <p class="title-revision-2">Sil Fios e Cabos Elétricos</p>
+                <p class="title-revision-3">Abril 2022 a julho 2023</p>
+                <p class="revision-description"></p>
+            </section>
+
+            <h2 class="title">Idiomas</h2>
+            <div class="idioms-container js-container-${'idioms'}-${id}">
+                <p class="skills-title">Inglês - Intermediário</p>
+                <button class="icon-img icon-${page}-${id}">
+                    <img src="img/pencil.png" style="width: 18px;">
+                </button>
+                <button class="icon-img icon-${'idioms'}-${id}">
+                    <img src="img/bin.png" style="width: 18px;">
+                </button>
+            </div>
+            `
+
+            <h2 class="title">Habilidades</h2>
+            <div class="abilities-container js-container-${'abilities'}-${id}">
+                <p class="form-skills-title">Excel Avançado</p>
+                <button class="icon-img icon-${page}-${id}">
+                    <img src="img/pencil.png" style="width: 18px;">
+                </button>
+                <button class="icon-img icon-${'abilities'}-${id}">
+                    <img src="img/bin.png" style="width: 18px;">
+                </button>
+            </div>    
+        </section>
+            <button class="form-button-continue js-form-button-continue-index">Continuar</button>
+    </main>
+
+    <script type="module" src="script/revision.js"></script>
+</body>
+
+</html>
