@@ -1,4 +1,4 @@
-import { form, displayAlert, saveToStorage } from '../data/form.js'
+import { form, displayAlert, saveToStorage, nextPage } from '../data/form.js'
 
 checkInput('index');
 
@@ -18,7 +18,7 @@ function checkInput(page) {
         if (!name || !email || !phone || !marital_status || !country || !city) {
             displayAlert();
         } else {
-            window.location.href = 'education.html';
+            nextPage('../education.html');
         }
 
         form.personalInformations = {};

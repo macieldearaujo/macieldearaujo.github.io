@@ -1,4 +1,4 @@
-import { form, removeFromForm, displayOnScreen } from '../data/form.js'
+import { form, removeFromForm, displayOnScreen, nextPage } from '../data/form.js'
 
 const page = 'experience'
 
@@ -17,7 +17,7 @@ function checkInput(page) {
     const continueButton = document.querySelector(`.js-form-button-continue-${page}`);
     
     continueButton.addEventListener('click', () => {
-        window.location.href = 'skills.html'
+        nextPage('../skills.html');
     })
 }
 

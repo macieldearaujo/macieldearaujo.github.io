@@ -141,6 +141,7 @@ header h1 {
 
 .form-button-continue {
     background-color: #605CE9;
+    height: 40px;
     color: white;
     font-size: 16px;
     padding: 10px;

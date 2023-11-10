@@ -1,4 +1,4 @@
-import { form, displayAlert, saveToStorage } from '../data/form.js'
+import { form, displayAlert, saveToStorage, nextPage } from '../data/form.js'
 
 checkInput('experience');
 
@@ -23,7 +23,7 @@ function checkInput(page) {
             displayAlert();
         } else {
             addToForm();
-            window.location.href = 'experience revision.html';
+            nextPage('../experience revision.html');
         }
 
         function addToForm() {
