@@ -1,4 +1,4 @@
-import { form, displayAlert, saveToStorage, removeFromForm } from '../data/form.js'
+import { form, displayAlert, displayOnScreenAbility, saveToStorage, removeFromForm } from '../data/form.js'
 
 const page = 'skills'
 
@@ -16,15 +16,15 @@ addButton_idiom.addEventListener('click', () => {
 
 addButton_ability.addEventListener('click', () => {
     addToForm_Ability();
-    displayAbility();
+    displayOnScreenAbility();
     save();
     removeFromForm('abilities', form.abilities);
 })
 
 displayIdiom();
-displayAbility();
+displayOnScreenAbility();
 
-function displayIdiom() {
+export function displayIdiom() {
     let displayHTML_idiom = '';
 
     form.idioms.forEach((value) => {
@@ -46,29 +46,6 @@ function displayIdiom() {
         }
     })
     document.querySelector('.idiom-container-result').innerHTML = displayHTML_idiom;
-}
-
-function displayAbility() {
-    let displayHTML_ability = '';
-
-    form.abilities.forEach((value) => {
-        const id = value.id;
-        const ability = value.ability;
-
-        if (!ability) {
-            displayAlert();
-        } else {
-            displayHTML_ability += `
-            <div class=" form-abilities-container js-container-${'abilities'}-${id}">
-                <p class="form-skills-title">${ability}</p>
-                <button class="icon-img icon-${'abilities'}-${id}">
-                    <img src="img/bin.png" style="width: 18px;">
-                </button>
-            </div>    
-    `
-        }
-    })
-    document.querySelector('.ability-container-result').innerHTML = displayHTML_ability;
 }
 
 function addToForm_Idiom() {

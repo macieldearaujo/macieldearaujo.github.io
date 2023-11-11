@@ -1,4 +1,4 @@
-import { form, displayOnScreen, removeFromForm, nextPage } from '../data/form.js'
+import { form, displayOnScreen, displayOnScreenAbility, removeFromForm, nextPage } from '../data/form.js'
 
 console.log(form)
 personAndAddress()
@@ -28,6 +28,8 @@ displayOnScreen('experience', form.experiences);
 
 removeFromForm('education', form.courses);
 removeFromForm('experience', form.experiences);
+
+displayOnScreenAbility()
 
 const adressElement = document.querySelector('.js-adress');
 
