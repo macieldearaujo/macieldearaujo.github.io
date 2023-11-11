@@ -5,7 +5,9 @@ personalInformations()
 
 function personalInformations() {
     const name = form.personalInformations.name;
+    const email = form.personalInformations.email;
+    const phone = form.personalInformations.phone;
 
-    alert(name)
+    
 }
 
