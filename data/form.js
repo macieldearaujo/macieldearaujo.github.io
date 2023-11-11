@@ -28,7 +28,7 @@ export function displayAlert() {
 }
 
 export function displayOnScreen(page, parameter) {
-    const container = document.querySelector('.form-container');
+    const container = document.querySelector(`.form-container-${page}`);
     let displayHTML = '';
 
     parameter.forEach((value) => {
