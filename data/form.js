@@ -2,6 +2,7 @@ export let form = JSON.parse(localStorage.getItem('form'));
 
 if (!form) {
     form = {
+        personalInformations: {},
         courses: [],
         experiences: [],
         idioms: [],
