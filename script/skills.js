@@ -38,7 +38,7 @@ function displayIdiom() {
             displayHTML_idiom += `
     <div class="form-idioms-container js-container-${'idioms'}-${id}">
         <p class="form-skills-title">${language} - ${proficiency}</p>
-        <button class="bin-img bin-${'idioms'}-${id}">
+        <button class="icon-img icon-${'idioms'}-${id}">
             <img src="img/bin.png" style="width: 18px;">
         </button>
     </div>
@@ -61,7 +61,7 @@ function displayAbility() {
             displayHTML_ability += `
             <div class=" form-abilities-container js-container-${'abilities'}-${id}">
                 <p class="form-skills-title">${ability}</p>
-                <button class="bin-img bin-${'abilities'}-${id}">
+                <button class="icon-img icon-${'abilities'}-${id}">
                     <img src="img/bin.png" style="width: 18px;">
                 </button>
             </div>    

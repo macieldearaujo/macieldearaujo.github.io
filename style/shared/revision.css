@@ -1,81 +1,85 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&display=swap');
 
+
 * {
     font-family: 'Noto Sans', sans-serif;
 }
 
-.form-container-revision {
+.container-revision {
     margin: 15px 0px;
     border: 0.5px solid rgba(128, 128, 128, 0.373);
     padding: 15px 20px;
     border-radius: 10px;
 }
 
-.bin-img {
-    background-color: white;
+.icon-img {
+    background-color: transparent;
+    display: inline-block;
     border: none;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.bin-img:hover {
+.icon-img:hover {
     background-color: rgba(249, 131, 131, 0.236);
 }
 
-.bin-img:active {
+.icon-img:active {
     background-color: rgba(207, 60, 60, 0.39);
 }
 
-.form-title-revision-1 {
+.title-revision-1 {
     display: inline-block;
-    width: 90%;
+    width: 84%;
     color: #424242;
     margin: 8px 0px;
     font-size: 16px;
 }
 
-.form-title-revision-2,
-.form-title-revision-3,
-.form-description-revision {
+.title-revision-2,
+.title-revision-3,
+.description-revision {
     font-size: 14px;
     line-height: 21px;
 }
 
-.form-title-revision-2:hover,
-.form-title-revision-3:hover,
-.form-description-revision:hover {
+.title-revision-2:hover,
+.title-revision-3:hover,
+.description-revision:hover {
     text-decoration: underline;
 }
 
-.form-title-revision-2 {
+.title-revision-2 {
     color: #595959;
 }
 
-.form-title-revision-3 {
+.title-revision-3 {
     margin: 10px 0px;
     color: #767676;
 }
 
-.form-description-revision {
+.description-revision {
     color: #2D2D2D;
 }
 
-/* Skills */
-
-.form-skills-title {
-    width: 92%;
-}
-
-.form-skills-title  {
+.skills-title {
+    width: 85%;
     display: inline-block;
 }
 
-.form-container-course {
-    width: 100%;
-}
-
-.form-revision-description {
+.revision-description {
     font-size: 14px;
     color: #595959;
+}
+
+.abilities-container,
+.idioms-container {
+    margin: 20px 0px;
+    border: 1px solid rgb(189, 189, 189);
+    border-radius: 10px;
+    padding: 2px 15px;
+    font-weight: bold;
+    height: auto;
+    word-wrap: break-word;
 }

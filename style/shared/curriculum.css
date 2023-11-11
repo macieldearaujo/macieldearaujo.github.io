@@ -5,7 +5,7 @@
 .form-section {
     margin-top: 20px;
 }
-
+ 
 .form-title-topic {
     font-size: 28px;
     margin: 25px 0px 15px 0px;
@@ -77,8 +77,10 @@
 }
 
 .form-input:hover {
-    background-color: rgba(240, 240, 240, 0.363);
+    background-color: rgba(240, 240, 240, 0.174);
 }
+
+/* Continue Button */
 
 .form-button-continue {
     background-color: #605CE9;
@@ -137,7 +139,6 @@
 .form-button-add-2:hover {
     background-color: #b9b3ce86;
     box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.271);
-    
 }
 
 .form-button-add-2:active {
@@ -154,14 +155,9 @@ hr {
     animation: tremer 0.5s ease infinite;
 }
 
-.form-abilities-container {
-    margin: 20px 0px;
-    border: 1px solid rgb(189, 189, 189);
-    border-radius: 10px;
-    padding: 2px 15px;
-    font-weight: bold;
-    height: auto;
-    word-wrap: break-word;
+.form-skills-title {
+    display: inline-block;
+    width: 80%;
 }
 
 .form-idioms-container {
@@ -170,6 +166,10 @@ hr {
     border-radius: 10px;
     padding: 2px 15px;
     font-weight: bold;
+}
+
+.idiom-container-result:hover {
+    background-color: rgba(211, 211, 211, 0.351);
 }
 
 @keyframes tremer {

@@ -41,14 +41,14 @@ export function displayOnScreen(page, parameter) {
         !description ? description = '' : description;
 
         displayHTML += `
-        <section class="form-container-revision js-container-${page}-${id}">
-            <h3 class="form-title-revision-1">${name}</h3>
-            <button class="bin-img bin-${page}-${id}">
+        <section class="container-revision js-container-${page}-${id}">
+            <h3 class="title-revision-1">${name}</h3>
+            <button class="icon-img icon-${page}-${id}">
                 <img src="img/bin.png" style="width: 24px;">
             </button>
-            <p class="form-title-revision-2">${institution}</p>
-            <p class="form-title-revision-3">${begin_month}/${begin_year} a ${end_month}/${end_year}</p>
-            <p class="form-revision-description">${description}</p>
+            <p class="title-revision-2">${institution}</p>
+            <p class="title-revision-3">${begin_month}/${begin_year} a ${end_month}/${end_year}</p>
+            <p class="revision-description">${description}</p>
         </section>
         `
     })
@@ -59,7 +59,7 @@ export function displayOnScreen(page, parameter) {
 export function removeFromForm(object, parameter) {
     parameter.forEach((item) => {
         const id = item.id;
-        const bin = document.querySelector(`.bin-${object}-${id}`);
+        const bin = document.querySelector(`.icon-${object}-${id}`);
         const containerItem = document.querySelector(`.js-container-${object}-${id}`);
 
         bin.addEventListener('click', () => {
