@@ -12,13 +12,18 @@
     border-radius: 10px;
 }
 
-.icon-img {
+.icon-img,
+.pencil-img {
     background-color: transparent;
     display: inline-block;
     border: none;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+}
+
+.pencil-img:hover {
+    background-color: rgba(135, 206, 250, 0.296);
 }
 
 .icon-img:hover {

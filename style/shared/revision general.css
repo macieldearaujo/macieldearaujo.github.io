@@ -17,6 +17,15 @@
     margin: 15px 0px;
 }
 
+.name-title {
+    display: inline-block;
+    width: 90%;
+}
+
+.pencil-img:hover {
+    background-color: rgba(84, 93, 225, 0.236);
+}
+
 hr {
     margin-top: 20px;
     border-color: rgb(225, 225, 225);
