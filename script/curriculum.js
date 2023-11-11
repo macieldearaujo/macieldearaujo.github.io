@@ -10,8 +10,12 @@ function checkInput(page) {
         const name = document.querySelector('input[name="name"]').value;
         const email = document.querySelector('input[name="email"]').value;
         const phone = document.querySelector('.form-input[name="phone"]').value;
-        const marital_status = document.querySelector('.js-form-input-maritial-status').value;
+
+        const marital_statusElement = document.querySelector('.js-form-input-maritial-status');
+        const marital_status = marital_statusElement.options[marital_statusElement.selectedIndex].text;
+
         const country = document.querySelector('.js-form-input-country').value;
+
         const city = document.querySelector('.form-input[name="city"]').value;
         const neighborhood = document.querySelector('.js-form-input-neighborhood').value;
 
