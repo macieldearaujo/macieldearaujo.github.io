@@ -1,4 +1,4 @@
-import { form, displayAlert, displayOnScreenAbility, saveToStorage, removeFromForm } from '../data/form.js'
+import { form, displayAlert, displayOnScreen, saveToStorage, removeFromForm } from '../data/form.js'
 
 const page = 'skills'
 
@@ -16,13 +16,13 @@ addButton_idiom.addEventListener('click', () => {
 
 addButton_ability.addEventListener('click', () => {
     addToForm_Ability();
-    displayOnScreenAbility();
+    displayOnScreen('ability', form.abilities);
     save();
     removeFromForm('abilities', form.abilities);
 })
 
 displayIdiom();
-displayOnScreenAbility();
+displayOnScreen('ability', form.abilities);
 
 export function displayIdiom() {
     let displayHTML_idiom = '';

@@ -30,19 +30,35 @@ export function displayAlert() {
 export function displayOnScreen(page, parameter) {
     const container = document.querySelector(`.form-container-${page}`);
     let displayHTML = '';
+    let displayHTML_A = '';
 
     parameter.forEach((value) => {
-        const id = value.id;
-        const name = value.name;
-        const institution = value.institution;
-        const begin_month = value.begin_month;
-        const begin_year = value.begin_year;
-        const end_month = value.end_month;
-        const end_year = value.end_year;
-        let description = value.description;
-        !description ? description = '' : description;
+        if (page === 'ability') {
+            const id = value.id;
+            const abilities = value.ability;
 
-        displayHTML += `
+            displayHTML_A += `
+                <section class="container-ability js-container-${page}-${id}">
+                    <div class=" form-abilities-container js-container-${'abilities'}-${id}">
+                        <p class="form-skills-title">${abilities}</p>
+                        <button class="icon-img icon-${'abilities'}-${id}">
+                            <img src="img/bin.png" style="width: 18px;">
+                        </button>
+                    </div>
+                </section>
+        `
+        } else {
+            const id = value.id;
+            const name = value.name;
+            const institution = value.institution;
+            const begin_month = value.begin_month;
+            const begin_year = value.begin_year;
+            const end_month = value.end_month;
+            const end_year = value.end_year;
+            let description = value.description;
+            !description ? description = '' : description;
+
+            displayHTML += `
         <section class="container-revision js-container-${page}-${id}">
             <h3 class="title-revision-1">${name}</h3>
             <button class="icon-img icon-${page}-${id}">
@@ -53,9 +69,13 @@ export function displayOnScreen(page, parameter) {
             <p class="revision-description">${description}</p>
         </section>
         `
+        }
     })
-
-    container.innerHTML = displayHTML;
+    if (page === 'ability') {
+        container.innerHTML = displayHTML_A;
+    } else {
+        container.innerHTML = displayHTML;
+    }
 }
 
 export function displayOnScreenAbility() {
@@ -104,7 +124,7 @@ export function removeFromForm(object, parameter) {
 
 export function nextPage(directory) {
     const button = document.querySelector('.form-button-continue');
-    
+
     button.innerHTML = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`
     setTimeout(() => {
         window.location.href = directory;

@@ -29,7 +29,6 @@ displayOnScreen('experience', form.experiences);
 removeFromForm('education', form.courses);
 removeFromForm('experience', form.experiences);
 
-displayOnScreenAbility()
 
 const adressElement = document.querySelector('.js-adress');
 
