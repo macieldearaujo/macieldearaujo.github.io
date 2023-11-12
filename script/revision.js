@@ -30,6 +30,8 @@ displayOnScreen('idiom', form.idioms);
 
 removeFromForm('education', form.courses);
 removeFromForm('experience', form.experiences);
+removeFromForm('abilities', form.abilities);
+removeFromForm('idioms', form.idioms);
 
 
 const adressElement = document.querySelector('.js-adress');
