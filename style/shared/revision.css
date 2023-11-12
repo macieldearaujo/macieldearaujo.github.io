@@ -16,8 +16,9 @@
     font-weight: bold;
     margin: 15px 0px;
     border: 0.5px solid rgba(128, 128, 128, 0.373);
-    padding: 5px 10px;
+    padding: 20px 10px;
     border-radius: 10px;
+    word-wrap: break-word;
 }
 
 .icon-img,
@@ -40,6 +41,12 @@
 
 .icon-img:active {
     background-color: rgba(207, 60, 60, 0.39);
+}
+
+.container-title-revision {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .title-revision-1 {

@@ -37,8 +37,11 @@ export function displayOnScreen(page, parameter) {
             const abilities = value.ability;
 
             displayHTML += `
-        <div class="container-ability js-container-abilities-${id}">
+        <div class="container-ability container-title-revision js-container-abilities-${id}">
             <p class="form-skills-title">${abilities}</p>
+            <button class="pencil-img">
+                <img src="img/pencil.png" style="width: 24px;">
+            </button>
             <button class="icon-img icon-${'abilities'}-${id}">
                 <img src="img/bin.png" style="width: 18px;">
             </button>
@@ -50,8 +53,11 @@ export function displayOnScreen(page, parameter) {
             const proficiency = value.proficiency;
 
             displayHTML += `
-    <div class="container-idiom js-container-idioms-${id}">
+    <div class="container-idiom container-title-revision js-container-idioms-${id}">
         <p class="form-skills-title">${language} - ${proficiency}</p>
+        <button class="pencil-img">
+                <img src="img/pencil.png" style="width: 24px;">
+            </button>
         <button class="icon-img icon-idioms-${id}">
             <img src="img/bin.png" style="width: 18px;">
         </button>
@@ -70,10 +76,15 @@ export function displayOnScreen(page, parameter) {
 
             displayHTML += `
         <section class="container-revision js-container-${page}-${id}">
-            <h3 class="title-revision-1">${name}</h3>
+            <div class="container-title-revision">
+                <h3 class="title-revision-1">${name}</h3>
+            <button class="pencil-img">
+                <img src="img/pencil.png" style="width: 24px;">
+            </button>
             <button class="icon-img icon-${page}-${id}">
                 <img src="img/bin.png" style="width: 24px;">
             </button>
+            </div>
             <p class="title-revision-2">${institution}</p>
             <p class="title-revision-3">${begin_month}/${begin_year} a ${end_month}/${end_year}</p>
             <p class="revision-description">${description}</p>
