@@ -6,23 +6,24 @@ const addButton_ability = document.querySelector('.js-add-ability');
 console.log(form);
 
 addButton_idiom.addEventListener('click', () => {
-    addToForm_Idiom();
+    addToForm('idiom');
     displayOnScreen('idiom', form.idioms);
-    save();
     removeFromForm('idioms', form.idioms);
+    console.log(form);
 })
 
 addButton_ability.addEventListener('click', () => {
-    addToForm_Ability();
+    addToForm('ability');
     displayOnScreen('ability', form.abilities);
-    save();
     removeFromForm('abilities', form.abilities);
+    console.log(form);
 })
 
 displayOnScreen('ability', form.abilities);
 displayOnScreen('idiom', form.idioms);
 
-function addToForm_Idiom() {
+function addToForm(input) {
+    if(input === 'idiom') { // if it's idiom save to idiom object
     const language = document.querySelector('.js-form-input-language').options[document.querySelector('.js-form-input-language').selectedIndex].text;
     const proficiency = document.querySelector('.js-form-input-proficiency').options[document.querySelector('.js-form-input-proficiency').selectedIndex].text;
 
@@ -32,10 +33,7 @@ function addToForm_Idiom() {
         language,
         proficiency
     })
-}
-}
-
-function addToForm_Ability() {
+}} else if(input === 'ability') { // if it's ability save to ability object
     const ability = document.querySelector('.js-form-input-ability').value;
 
     if (ability) {
@@ -43,12 +41,8 @@ function addToForm_Ability() {
         id: form.abilities.length,
         ability
     })
-}
-}
-
-function save() {
-    console.log(form);
-    saveToStorage();
+}}
+saveToStorage()
 }
 
 removeFromForm('idioms', form.idioms);
