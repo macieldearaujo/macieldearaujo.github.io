@@ -9,7 +9,7 @@ console.log(form);
 
 addButton_idiom.addEventListener('click', () => {
     addToForm_Idiom();
-    displayIdiom();
+    displayOnScreen('idiom', form.idioms);
     save();
     removeFromForm('idioms', form.idioms);
 })
@@ -21,32 +21,8 @@ addButton_ability.addEventListener('click', () => {
     removeFromForm('abilities', form.abilities);
 })
 
-displayIdiom();
 displayOnScreen('ability', form.abilities);
-
-export function displayIdiom() {
-    let displayHTML_idiom = '';
-
-    form.idioms.forEach((value) => {
-        const id = value.id;
-        const language = value.language;
-        const proficiency = value.proficiency;
-
-        if (language === 'default' || proficiency === 'default') {
-            displayAlert();
-        } else {
-            displayHTML_idiom += `
-    <div class="form-idioms-container js-container-${'idioms'}-${id}">
-        <p class="form-skills-title">${language} - ${proficiency}</p>
-        <button class="icon-img icon-${'idioms'}-${id}">
-            <img src="img/bin.png" style="width: 18px;">
-        </button>
-    </div>
-    `
-        }
-    })
-    document.querySelector('.idiom-container-result').innerHTML = displayHTML_idiom;
-}
+displayOnScreen('idiom', form.idioms);
 
 function addToForm_Idiom() {
     const languageElement = document.querySelector('.js-form-input-language');

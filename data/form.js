@@ -30,23 +30,35 @@ export function displayAlert() {
 export function displayOnScreen(page, parameter) {
     const container = document.querySelector(`.form-container-${page}`);
     let displayHTML = '';
-    let displayHTML_A = '';
+    let displayHTML_Ability = '';
+    let displayHTML_idiom = '';
 
     parameter.forEach((value) => {
         if (page === 'ability') {
             const id = value.id;
             const abilities = value.ability;
 
-            displayHTML_A += `
-                <section class="container-ability js-container-${page}-${id}">
-                    <div class=" form-abilities-container js-container-${'abilities'}-${id}">
-                        <p class="form-skills-title">${abilities}</p>
-                        <button class="icon-img icon-${'abilities'}-${id}">
-                            <img src="img/bin.png" style="width: 18px;">
-                        </button>
-                    </div>
-                </section>
+            displayHTML_Ability += `
+        <div class="container-ability js-container-abilities-${id}">
+            <p class="form-skills-title">${abilities}</p>
+            <button class="icon-img icon-${'abilities'}-${id}">
+                <img src="img/bin.png" style="width: 18px;">
+            </button>
+        </div>
         `
+        } else if(page === 'idiom') {
+            const id = value.id;
+            const language = value.language;
+            const proficiency = value.proficiency;
+
+            displayHTML_idiom += `
+    <div class="container-idiom js-container-idioms-${id}">
+        <p class="form-skills-title">${language} - ${proficiency}</p>
+        <button class="icon-img icon-idioms-${id}">
+            <img src="img/bin.png" style="width: 18px;">
+        </button>
+    </div>
+    `
         } else {
             const id = value.id;
             const name = value.name;
@@ -72,7 +84,9 @@ export function displayOnScreen(page, parameter) {
         }
     })
     if (page === 'ability') {
-        container.innerHTML = displayHTML_A;
+        container.innerHTML = displayHTML_Ability;
+    } else if(page === 'idiom') {
+        container.innerHTML = displayHTML_idiom;
     } else {
         container.innerHTML = displayHTML;
     }
