@@ -23,26 +23,31 @@ displayOnScreen('ability', form.abilities);
 displayOnScreen('idiom', form.idioms);
 
 function addToForm(input) {
-    if(input === 'idiom') { // if it's idiom save to idiom object
-    const language = document.querySelector('.js-form-input-language').options[document.querySelector('.js-form-input-language').selectedIndex].text;
-    const proficiency = document.querySelector('.js-form-input-proficiency').options[document.querySelector('.js-form-input-proficiency').selectedIndex].text;
+    if (input === 'idiom') { // if it's idiom save to idiom object
+        const languageElement = document.querySelector('.js-form-input-language');
+        const proficiencyElement = document.querySelector('.js-form-input-proficiency');
 
-    if (language !== 'default' || proficiency !== 'default') {
-    form.idioms.push({
-        id: form.idioms.length,
-        language,
-        proficiency
-    })
-}} else if(input === 'ability') { // if it's ability save to ability object
-    const ability = document.querySelector('.js-form-input-ability').value;
+        const language = languageElement.options[languageElement.selectedIndex].text;
+        const proficiency = proficiencyElement.options[proficiencyElement.selectedIndex].text;
 
-    if (ability) {
-    form.abilities.push({
-        id: form.abilities.length,
-        ability
-    })
-}}
-saveToStorage()
+        if (language !== 'default' || proficiency !== 'default') {
+            form.idioms.push({
+                id: form.idioms.length,
+                language,
+                proficiency
+            })
+        }
+    } else if (input === 'ability') { // if it's ability save to ability object
+        const ability = document.querySelector('.js-form-input-ability').value;
+
+        if (ability) {
+            form.abilities.push({
+                id: form.abilities.length,
+                ability
+            })
+        }
+    }
+    saveToStorage()
 }
 
 removeFromForm('idioms', form.idioms);
