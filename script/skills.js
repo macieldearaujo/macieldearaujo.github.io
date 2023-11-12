@@ -23,11 +23,8 @@ displayOnScreen('ability', form.abilities);
 displayOnScreen('idiom', form.idioms);
 
 function addToForm_Idiom() {
-    const languageElement = document.querySelector('.js-form-input-language');
-    const proficiencyElement = document.querySelector('.js-form-input-proficiency');
-
-    const language = languageElement.options[languageElement.selectedIndex].text;
-    const proficiency = proficiencyElement.options[proficiencyElement.selectedIndex].text;
+    const language = document.querySelector('.js-form-input-language').options[document.querySelector('.js-form-input-language').selectedIndex].text;
+    const proficiency = document.querySelector('.js-form-input-proficiency').options[document.querySelector('.js-form-input-proficiency').selectedIndex].text;
 
     if (language !== 'default' || proficiency !== 'default') {
     form.idioms.push({
