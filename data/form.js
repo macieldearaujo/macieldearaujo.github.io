@@ -92,29 +92,6 @@ export function displayOnScreen(page, parameter) {
     }
 }
 
-export function displayOnScreenAbility() {
-    let displayHTML_ability = '';
-
-    form.abilities.forEach((value) => {
-        const id = value.id;
-        const ability = value.ability;
-
-        if (!ability) {
-            displayAlert();
-        } else {
-            displayHTML_ability += `
-            <div class=" form-abilities-container js-container-${'abilities'}-${id}">
-                <p class="form-skills-title">${ability}</p>
-                <button class="icon-img icon-${'abilities'}-${id}">
-                    <img src="img/bin.png" style="width: 18px;">
-                </button>
-            </div>    
-    `
-        }
-    })
-    document.querySelector('.ability-container-result').innerHTML = displayHTML_ability;
-}
-
 export function removeFromForm(object, parameter) {
     parameter.forEach((item) => {
         const id = item.id;

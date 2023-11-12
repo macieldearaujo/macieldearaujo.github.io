@@ -1,4 +1,4 @@
-import { form, displayOnScreen, displayOnScreenAbility, removeFromForm, nextPage } from '../data/form.js'
+import { form, displayOnScreen, removeFromForm, nextPage } from '../data/form.js'
 
 console.log(form)
 personAndAddress()
@@ -25,6 +25,8 @@ function personAndAddress() {
 
 displayOnScreen('education', form.courses);
 displayOnScreen('experience', form.experiences);
+displayOnScreen('ability', form.abilities);
+displayOnScreen('idiom', form.idioms);
 
 removeFromForm('education', form.courses);
 removeFromForm('experience', form.experiences);
