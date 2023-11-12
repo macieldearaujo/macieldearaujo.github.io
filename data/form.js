@@ -30,15 +30,13 @@ export function displayAlert() {
 export function displayOnScreen(page, parameter) {
     const container = document.querySelector(`.form-container-${page}`);
     let displayHTML = '';
-    let displayHTML_Ability = '';
-    let displayHTML_idiom = '';
 
     parameter.forEach((value) => {
         if (page === 'ability') {
             const id = value.id;
             const abilities = value.ability;
 
-            displayHTML_Ability += `
+            displayHTML += `
         <div class="container-ability js-container-abilities-${id}">
             <p class="form-skills-title">${abilities}</p>
             <button class="icon-img icon-${'abilities'}-${id}">
@@ -46,12 +44,12 @@ export function displayOnScreen(page, parameter) {
             </button>
         </div>
         `
-        } else if(page === 'idiom') {
+        } else if (page === 'idiom') {
             const id = value.id;
             const language = value.language;
             const proficiency = value.proficiency;
 
-            displayHTML_idiom += `
+            displayHTML += `
     <div class="container-idiom js-container-idioms-${id}">
         <p class="form-skills-title">${language} - ${proficiency}</p>
         <button class="icon-img icon-idioms-${id}">
@@ -83,13 +81,7 @@ export function displayOnScreen(page, parameter) {
         `
         }
     })
-    if (page === 'ability') {
-        container.innerHTML = displayHTML_Ability;
-    } else if(page === 'idiom') {
-        container.innerHTML = displayHTML_idiom;
-    } else {
-        container.innerHTML = displayHTML;
-    }
+    container.innerHTML = displayHTML;
 }
 
 export function removeFromForm(object, parameter) {
