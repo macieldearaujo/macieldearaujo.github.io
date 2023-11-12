@@ -84,6 +84,14 @@ export function displayOnScreen(page, parameter) {
     container.innerHTML = displayHTML;
 }
 
+export function ifEmpty(page, parameter) {
+    const container = document.querySelector(`.form-container-${page}`);
+
+    if(parameter.length === 0) {
+        container.innerHTML = `<div class="empty-add-div">Suas informações aparecerão aqui</div>`
+    }
+}
+
 export function removeFromForm(object, parameter) {
     parameter.forEach((item) => {
         const id = item.id;

@@ -5,6 +5,11 @@
     margin: 25px 0px 15px 0px;
 }
 
+.title-topic {
+    font-size: 20px;
+    margin: 25px 0px 15px 0px;
+} 
+
 .header-subtitle {
     color: #6D6D6D;
     font-size: 16px;
@@ -29,4 +34,13 @@
 hr {
     margin-top: 20px;
     border-color: rgb(225, 225, 225);
+}
+
+.empty-add-div {
+    width: 90%;
+    outline: 1px dashed rgba(135, 135, 135, 0.675);
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 16px;
+    color: gray;
 }

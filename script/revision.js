@@ -1,4 +1,4 @@
-import { form, displayOnScreen, removeFromForm, nextPage } from '../data/form.js'
+import { form, displayOnScreen, removeFromForm, ifEmpty } from '../data/form.js'
 
 console.log(form)
 personAndAddress()
@@ -32,6 +32,11 @@ removeFromForm('education', form.courses);
 removeFromForm('experience', form.experiences);
 removeFromForm('abilities', form.abilities);
 removeFromForm('idioms', form.idioms);
+
+ifEmpty('experience', form.experiences);
+ifEmpty('education', form.courses);
+ifEmpty('ability', form.abilities);
+ifEmpty('idiom', form.idioms);
 
 
 const adressElement = document.querySelector('.js-adress');
