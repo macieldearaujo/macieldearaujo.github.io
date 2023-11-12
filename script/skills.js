@@ -29,25 +29,23 @@ function addToForm_Idiom() {
     const language = languageElement.options[languageElement.selectedIndex].text;
     const proficiency = proficiencyElement.options[proficiencyElement.selectedIndex].text;
 
-    const idiomObject = {
+    if (language !== 'default' || proficiency !== 'default') {
+    form.idioms.push({
         id: form.idioms.length,
         language,
         proficiency
-    }
-    if (language !== 'default' || proficiency !== 'default') {
-    form.idioms.push(idiomObject)
+    })
 }
 }
 
 function addToForm_Ability() {
     const ability = document.querySelector('.js-form-input-ability').value;
 
-    const abilityObject = {
+    if (ability) {
+    form.abilities.push({
         id: form.abilities.length,
         ability
-    }
-    if (ability) {
-    form.abilities.push(abilityObject)
+    })
 }
 }
 
