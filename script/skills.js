@@ -1,6 +1,4 @@
-import { form, displayAlert, displayOnScreen, saveToStorage, removeFromForm } from '../data/form.js'
-
-const page = 'skills'
+import { form, displayOnScreen, saveToStorage, removeFromForm } from '../data/form.js'
 
 const addButton_idiom = document.querySelector('.js-add-idiom');
 const addButton_ability = document.querySelector('.js-add-ability');
