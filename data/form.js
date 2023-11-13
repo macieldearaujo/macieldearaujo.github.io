@@ -134,14 +134,22 @@ export function nextPage(directory) {
 }
 
 export function editForm(object) {
-    Object.entries(object).forEach(([key, value]) => {
-        const element = document.querySelector(`.js-form-input-${key}`);
-        if (element) {
-            element.value = value;
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const params = new URLSearchParams(window.location.search);
+        const executeRevision = params.get('executeRevision');
+    
+        if (executeRevision === 'true') {
+            Object.entries(object).forEach(([key, value]) => {
+                const element = document.querySelector(`.js-form-input-${key}`);
+                if (element) {
+                    element.value = value;
+                }
+            });
+        
+            document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
+                nextPage('revision.html');
+            })
         }
     });
-
-    document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
-        nextPage('revision.html');
-    })
+    
 }

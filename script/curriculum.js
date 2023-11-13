@@ -2,8 +2,9 @@ import { form, displayAlert, saveToStorage, nextPage, editForm } from '../data/f
 
 checkInput('index');
 
-editForm(form.personalInformations);
-editForm(form.adress);
+            editForm(form.personalInformations);
+            editForm(form.adress);
+
 
 formatPhone();
 
