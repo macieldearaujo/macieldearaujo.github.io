@@ -1,10 +1,7 @@
 import { form, displayAlert, saveToStorage, nextPage } from '../data/form.js'
 
-checkInput('education');
-
-function checkInput(page) {
     console.log(form)
-    const continueButton = document.querySelector(`.js-form-button-continue-${page}`);
+    const continueButton = document.querySelector(`.js-form-button-continue-education`);
 
     continueButton.addEventListener('click', () => {
         const name = document.querySelector('.js-form-input-course').value;
@@ -42,4 +39,3 @@ function checkInput(page) {
         console.log(form)
         saveToStorage();
     })
-}
