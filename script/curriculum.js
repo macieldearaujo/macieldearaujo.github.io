@@ -1,15 +1,9 @@
-import { form, displayAlert, saveToStorage, nextPage } from '../data/form.js'
+import { form, displayAlert, saveToStorage, nextPage, editForm } from '../data/form.js'
 
 checkInput('index');
 
-window.addEventListener('DOMContentLoaded', (event) => {
-    const params = new URLSearchParams(window.location.search);
-    const executeRevision = params.get('executeRevision');
-
-    if (executeRevision === 'true') {
-        revisionInput();
-    }
-});
+editForm(form.personalInformations);
+editForm(form.adress);
 
 formatPhone();
 
@@ -21,7 +15,7 @@ function formatPhone() {
 
     
         value = value.replace(/\D/g, '');
-        
+
         if (value.length < 2) {
             value = `(${value}`;
         } else if (value.length === 2) {
@@ -38,31 +32,6 @@ function formatPhone() {
     });
 }
 
-
-
-
-function revisionInput() {
-    Object.entries(form.personalInformations).forEach(([key, value]) => {
-        const element = document.querySelector(`.js-form-input-${key}`);
-        if (element) {
-            element.value = value;
-        }
-    });
-
-    // Assuming form.adress is an object
-    Object.entries(form.adress).forEach(([key, value]) => {
-        const element = document.querySelector(`.js-form-input-${key}`);
-        if (element) {
-            element.value = value;
-        }
-    });
-
-    document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
-        nextPage('revision.html');
-    })
-}
-
-
 function checkInput(page) {
     console.log(form)
     const continueButton = document.querySelector(`.js-form-button-continue`);
@@ -72,11 +41,9 @@ function checkInput(page) {
         const email = document.querySelector('input[name="email"]').value;
         const phone = document.querySelector('.js-form-input-phone').value;
 
-        const marital_statusElement = document.querySelector('.js-form-input-maritial-status');
-        const marital_status = marital_statusElement.options[marital_statusElement.selectedIndex].text;
+        const marital_status = document.querySelector('.js-form-input-maritial-status').value;
 
-        const countryElement = document.querySelector('.js-form-input-country');
-        const country = countryElement.options[countryElement.selectedIndex].text;
+        const country = document.querySelector('.js-form-input-country').value;
 
         const city = document.querySelector('.form-input[name="city"]').value;
         const neighborhood = document.querySelector('.js-form-input-neighborhood').value;

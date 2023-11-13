@@ -132,3 +132,16 @@ export function nextPage(directory) {
         window.location.href = directory;
     }, 1000)
 }
+
+export function editForm(object) {
+    Object.entries(object).forEach(([key, value]) => {
+        const element = document.querySelector(`.js-form-input-${key}`);
+        if (element) {
+            element.value = value;
+        }
+    });
+
+    document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
+        nextPage('revision.html');
+    })
+}
