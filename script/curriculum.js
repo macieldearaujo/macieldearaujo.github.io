@@ -19,28 +19,19 @@ function formatPhone() {
     phoneElement.addEventListener('input', (event) => {
         let value = event.target.value;
 
-        // Remove caracteres não numéricos
+    
         value = value.replace(/\D/g, '');
-
-        // Adiciona parênteses, espaço e traço conforme necessário
+        
         if (value.length < 2) {
-            // Ainda não digitou o DDD
             value = `(${value}`;
         } else if (value.length === 2) {
-            // Digitou o DDD, adiciona o espaço
             value = `(${value}) `;
         } else if (value.length >= 3 && value.length <= 9) {
-            // Completou o DDD, mas ainda não digitou os próximos números
             value = `(${value.substring(0, 2)}) ${value.substring(2)}`;
         } else if (value.length >= 10) {
-            // Digitou o número completo
             value = `(${value.substring(0, 2)}) ${value.substring(2, 7)}-${value.substring(7, 11)}`;
         }
-
-        // Atualiza o valor no input
         event.target.value = value;
-
-        // Remove formato extra se o usuário apagar todo o conteúdo
         if (value.length === 0 || value === '(') {
             event.target.value = '';
         }
