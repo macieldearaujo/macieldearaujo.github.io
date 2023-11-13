@@ -1,4 +1,4 @@
-import { form, displayAlert, saveToStorage, nextPage, editForm } from '../data/form.js'
+import { form, displayAlert, saveToStorage, nextPage, editForm, editFormIndex } from '../data/form.js'
 
 editForm('personal_informations');
 
