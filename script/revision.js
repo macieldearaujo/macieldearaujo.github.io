@@ -38,6 +38,13 @@ ifEmpty('education', form.courses);
 ifEmpty('ability', form.abilities);
 ifEmpty('idiom', form.idioms);
 
+const nameEditButton = document.querySelector('.form-edit-name');
+nameEditButton.addEventListener('click', () => {
+
+    window.location.href = 'index.html?executeRevision=true';
+})
+
+
 
 const adressElement = document.querySelector('.js-adress');
 
