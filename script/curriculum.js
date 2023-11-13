@@ -1,9 +1,7 @@
 import { form, displayAlert, saveToStorage, nextPage, editForm } from '../data/form.js'
 
-checkInput('index');
-
-            editForm(form.personalInformations);
-            editForm(form.adress);
+editForm(form.personalInformations);
+editForm(form.adress);
 
 
 formatPhone();
@@ -14,7 +12,7 @@ function formatPhone() {
     phoneElement.addEventListener('input', (event) => {
         let value = event.target.value;
 
-    
+
         value = value.replace(/\D/g, '');
 
         if (value.length < 2) {
@@ -33,28 +31,25 @@ function formatPhone() {
     });
 }
 
-function checkInput(page) {
-    console.log(form)
-    const continueButton = document.querySelector(`.js-form-button-continue`);
 
-    continueButton.addEventListener('click', () => {
-        const name = document.querySelector('input[name="name"]').value;
-        const email = document.querySelector('input[name="email"]').value;
-        const phone = document.querySelector('.js-form-input-phone').value;
+console.log(form)
+const continueButton = document.querySelector(`.js-form-button-continue`);
 
-        const marital_status = document.querySelector('.js-form-input-maritial-status').value;
+continueButton.addEventListener('click', () => {
+    const name = document.querySelector('input[name="name"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const phone = document.querySelector('.js-form-input-phone').value;
 
-        const country = document.querySelector('.js-form-input-country').value;
+    const marital_status = document.querySelector('.js-form-input-maritial-status').value;
 
-        const city = document.querySelector('.form-input[name="city"]').value;
-        const neighborhood = document.querySelector('.js-form-input-neighborhood').value;
+    const country = document.querySelector('.js-form-input-country').value;
 
-        if (!name || !email || !phone || !marital_status || !country || !city) {
-            displayAlert();
-        } else {
-            nextPage('education.html');
-        }
+    const city = document.querySelector('.form-input[name="city"]').value;
+    const neighborhood = document.querySelector('.js-form-input-neighborhood').value;
 
+    if (!name || !email || !phone || !marital_status || !country || !city) {
+        displayAlert();
+    } else {
         form.personalInformations = {};
         form.personalInformations.name = name;
         form.personalInformations.email = email;
@@ -67,5 +62,7 @@ function checkInput(page) {
 
         console.log(form)
         saveToStorage();
-    })
-}
+
+        nextPage('education.html');
+    }
+})
