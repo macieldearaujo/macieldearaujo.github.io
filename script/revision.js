@@ -39,10 +39,19 @@ ifEmpty('ability', form.abilities);
 ifEmpty('idiom', form.idioms);
 
 const nameEditButton = document.querySelector('.form-edit-name');
-nameEditButton.addEventListener('click', () => {
 
+nameEditButton.addEventListener('click', () => {
     window.location.href = 'index.html?executeRevision=true';
-})
+});
+
+form.courses.forEach((value) => {
+    const id = value.id
+    const educationButton = document.querySelector(`.form-edit-education-${id}`);
+
+    educationButton.addEventListener('click', () => {
+        window.location.href = `education.html?executeRevision=true&id=${id}`;
+    })
+});
 
 
 

@@ -1,7 +1,6 @@
 import { form, displayAlert, saveToStorage, nextPage, editForm } from '../data/form.js'
 
-editForm(form.personalInformations);
-editForm(form.adress);
+editForm('personal_informations');
 
 
 formatPhone();

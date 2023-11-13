@@ -78,7 +78,7 @@ export function displayOnScreen(page, parameter) {
         <section class="container-revision js-container-${page}-${id}">
             <div class="container-title-revision">
                 <h3 class="title-revision-1">${name}</h3>
-            <button class="pencil-img">
+            <button class="pencil-img form-edit-${page}-${id}">
                 <img src="img/pencil.png" style="width: 24px;">
             </button>
             <button class="icon-img icon-${page}-${id}">
@@ -98,7 +98,7 @@ export function displayOnScreen(page, parameter) {
 export function ifEmpty(page, parameter) {
     const container = document.querySelector(`.form-container-${page}`);
 
-    if(parameter.length === 0) {
+    if (parameter.length === 0) {
         container.innerHTML = `<div class="empty-add-div">Suas informações aparecerão aqui</div>`
     }
 }
@@ -133,23 +133,75 @@ export function nextPage(directory) {
     }, 1000)
 }
 
-export function editForm(object) {
+export function editForm(page) {
     window.addEventListener('DOMContentLoaded', (event) => {
         const params = new URLSearchParams(window.location.search);
         const executeRevision = params.get('executeRevision');
-    
+        const id = params.get('id');
+
         if (executeRevision === 'true') {
-            Object.entries(object).forEach(([key, value]) => {
-                const element = document.querySelector(`.js-form-input-${key}`);
-                if (element) {
-                    element.value = value;
-                }
-            });
-        
+            if (page === 'personal_informations') {
+                const nameElement = document.querySelector('.js-form-input-name');
+                const name = form.personalInformations.name;
+                nameElement.value = name;
+
+                const emailElement = document.querySelector('.js-form-input-email');
+                const email = form.personalInformations.email;
+                emailElement.value = email;
+
+                const phoneElement = document.querySelector('.js-form-input-phone');
+                const phone = form.personalInformations.phone;
+                phoneElement.value = phone;
+
+                const marital_statusElement = document.querySelector('.js-form-input-maritial-status');
+                const marital_status = form.personalInformations.marital_status;
+                marital_statusElement.value = marital_status;
+
+                const neighborhoodElement = document.querySelector('.js-form-input-neighborhood');
+                const neighborhood = form.adress.neighborhood;
+                neighborhoodElement.value = neighborhood;
+
+                const cityElement = document.querySelector('.js-form-input-city');
+                const city = form.adress.city;
+                cityElement.value = city;
+
+                const countryElement = document.querySelector('.js-form-input-country');
+                const country = form.adress.country;
+                countryElement.value = country;
+            }
+
+            if (page === 'education') {
+                const nameCourseElement = document.querySelector(`.js-form-input-course`);
+                const institutionElement = document.querySelector(`.js-form-input-institution`);
+                const beginMonthElement = document.querySelector(`.js-form-input-begin-month`);
+                const beginYearElement = document.querySelector(`.js-form-input-begin-year`);
+                const endMonthElement = document.querySelector(`.js-form-input-end-month`);
+                const endYearElement = document.querySelector(`.js-form-input-end-year`);
+                
+
+                form.courses.forEach((course, index) => {
+                    if(index == id) {
+                        const name = course.name;
+                        const institution = course.institution;
+                        const beginMonth = course.begin_month;
+                        const beginYear = course.begin_year;
+                        const endMonth = course.end_month;
+                        const endYear = course.end_year;
+
+                        nameCourseElement.value = name;
+                        institutionElement.value = institution;
+                        beginMonthElement.value = beginMonth;
+                        beginYearElement.value = beginYear;
+                        endMonthElement.value = endMonth;
+                        endYearElement.value = endYear;
+                    }
+                })
+            }
+
             document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
                 nextPage('revision.html');
             })
         }
     });
-    
+
 }

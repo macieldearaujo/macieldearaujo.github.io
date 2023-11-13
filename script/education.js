@@ -1,7 +1,10 @@
-import { form, displayAlert, saveToStorage, nextPage } from '../data/form.js'
+import { form, displayAlert, saveToStorage, nextPage, editForm } from '../data/form.js'
+
+
+editForm('education');
 
     console.log(form)
-    const continueButton = document.querySelector(`.js-form-button-continue-education`);
+    const continueButton = document.querySelector(`.js-form-button-continue`);
 
     continueButton.addEventListener('click', () => {
         const name = document.querySelector('.js-form-input-course').value;
