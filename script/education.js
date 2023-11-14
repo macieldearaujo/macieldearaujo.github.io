@@ -1,4 +1,5 @@
-import { form, displayAlert, saveToStorage, nextPage, editForm } from '../data/form.js'
+import { form, displayAlert, saveToStorage, nextPage } from '../data/form.js'
+import { editForm } from '../data/editform.js'
 
 
 editForm('education');
