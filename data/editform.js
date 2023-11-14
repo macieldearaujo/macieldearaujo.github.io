@@ -20,31 +20,34 @@ export function editForm(page) {
 export function editFormIndex() {
     const nameElement = document.querySelector('.js-form-input-name');
     const name = form.personalInformations.name;
-    nameElement.value = name;
 
     const emailElement = document.querySelector('.js-form-input-email');
     const email = form.personalInformations.email;
-    emailElement.value = email;
 
     const phoneElement = document.querySelector('.js-form-input-phone');
     const phone = form.personalInformations.phone;
-    phoneElement.value = phone;
 
     const marital_statusElement = document.querySelector('.js-form-input-maritial-status');
     const marital_status = form.personalInformations.marital_status;
-    marital_statusElement.value = marital_status;
 
     const neighborhoodElement = document.querySelector('.js-form-input-neighborhood');
     const neighborhood = form.adress.neighborhood;
-    neighborhoodElement.value = neighborhood;
 
     const cityElement = document.querySelector('.js-form-input-city');
     const city = form.adress.city;
-    cityElement.value = city;
 
     const countryElement = document.querySelector('.js-form-input-country');
     const country = form.adress.country;
-    countryElement.value = country;
+
+    if(name && email && phone && marital_status && neighborhood && city && country) { // Check if it's empty, if it is dont't display anything
+        nameElement.value = name;
+        emailElement.value = email;
+        phoneElement.value = phone;
+        marital_statusElement.value = marital_status;
+        neighborhoodElement.value = neighborhood;
+        cityElement.value = city;
+        countryElement.value = country;
+    }
 
     document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
         if (!nameElement.value || !emailElement.value || !phoneElement.value || !marital_statusElement.value || !neighborhoodElement.value || !cityElement.value || !countryElement.value) {
