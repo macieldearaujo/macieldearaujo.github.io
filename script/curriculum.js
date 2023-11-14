@@ -1,4 +1,5 @@
-import { form, displayAlert, saveToStorage, nextPage, editForm } from '../data/form.js'
+import { form, displayAlert, saveToStorage, nextPage } from '../data/form.js';
+import { editForm } from '../data/editform.js';
 
 editForm('personal_informations');
 
@@ -10,7 +11,6 @@ function formatPhone() {
 
     phoneElement.addEventListener('input', (event) => {
         let value = event.target.value;
-
 
         value = value.replace(/\D/g, '');
 
@@ -30,11 +30,10 @@ function formatPhone() {
     });
 }
 
-
 console.log(form)
-const continueButton = document.querySelector(`.js-form-button-continue`);
 
-continueButton.addEventListener('click', () => {
+document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
+    // get the value of inputs
     const name = document.querySelector('input[name="name"]').value;
     const email = document.querySelector('input[name="email"]').value;
     const phone = document.querySelector('.js-form-input-phone').value;
@@ -43,9 +42,11 @@ continueButton.addEventListener('click', () => {
     const city = document.querySelector('.form-input[name="city"]').value;
     const neighborhood = document.querySelector('.js-form-input-neighborhood').value;
 
+    // parameters that come from the revision
     const params = new URLSearchParams(window.location.search);
     const executeRevision = params.get('executeRevision');
 
+    //check if the inputs are valid
     if (!name || !email || !phone || !marital_status || !country || !city) {
         displayAlert();
     } else if (!executeRevision) {
