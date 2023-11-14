@@ -97,9 +97,8 @@ export function displayOnScreen(page, parameter) {
 
 export function ifEmpty(page, parameter) {
     const container = document.querySelector(`.form-container-${page}`);
-    if (page === 'personal-informations') {
+    if (page === 'personal-informations') { //In case it's personal informations check if name is valid because you can't use forEach in a object
         const name = form.personalInformations.name;
-
         if (!name) {
             container.innerHTML = `<div class="empty-add-div">Suas informações aparecerão aqui</div>`
         }
