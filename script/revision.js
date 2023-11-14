@@ -4,6 +4,7 @@ console.log(form)
 personAndAddress()
 
 function personAndAddress() {
+    // get the properties from form
     const name = form.personalInformations.name;
     const email = form.personalInformations.email;
     const phone = form.personalInformations.phone;
@@ -12,15 +13,19 @@ function personAndAddress() {
     const city = form.adress.city;
     const country = form.adress.country;
 
+    // get the paragraphs or titles
     const nameElement = document.querySelector('.js-name');
     const emailPhoneElement = document.querySelector('.js-email-phone');
     const marital_statusElement = document.querySelector('.js-marital_status');
     const adressElement = document.querySelector('.js-adress');
 
-    nameElement.innerHTML = name;
-    marital_statusElement.innerHTML = marital_status;
-    emailPhoneElement.innerHTML = `${email} | ${phone}`;
-    adressElement.innerHTML = `${neighborhood}, ${city}, ${country}`
+    // display on screen
+    if(name || email || phone || marital_status || neighborhood || city || country) {
+        nameElement.innerHTML = name;
+        marital_statusElement.innerHTML = marital_status;
+        emailPhoneElement.innerHTML = `${email} | ${phone}`;
+        adressElement.innerHTML = `${neighborhood}, ${city}, ${country}`
+    }
 }
 
 displayOnScreen('education', form.courses);
@@ -35,6 +40,7 @@ removeFromForm('experience', form.experiences);
 removeFromForm('abilities', form.abilities);
 removeFromForm('idioms', form.idioms);
 
+ifEmpty('personal-informations')
 ifEmpty('experience', form.experiences);
 ifEmpty('education', form.courses);
 ifEmpty('ability', form.abilities);
@@ -42,6 +48,7 @@ ifEmpty('idiom', form.idioms);
 
 editIndex();
 editEducation();
+
 
 function editIndex() {
     const nameEditButton = document.querySelector('.form-edit-name');

@@ -97,8 +97,13 @@ export function displayOnScreen(page, parameter) {
 
 export function ifEmpty(page, parameter) {
     const container = document.querySelector(`.form-container-${page}`);
+    if (page === 'personal-informations') {
+        const name = form.personalInformations.name;
 
-    if (parameter.length === 0) {
+        if (!name) {
+            container.innerHTML = `<div class="empty-add-div">Suas informações aparecerão aqui</div>`
+        }
+    } else if (parameter.length === 0) {
         container.innerHTML = `<div class="empty-add-div">Suas informações aparecerão aqui</div>`
     }
 }
@@ -118,7 +123,7 @@ export function removeFromForm(object, parameter) {
                 }
                 refreshID(parameter)
             });
-            
+
             console.log(form)
             saveToStorage();
             location.reload();
