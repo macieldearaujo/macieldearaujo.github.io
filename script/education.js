@@ -2,6 +2,7 @@ import { form, displayAlert, saveToStorage, nextPage, editForm } from '../data/f
 
 
 editForm('education');
+
 console.log(form)
 
 
@@ -17,6 +18,7 @@ continueButton.addEventListener('click', () => {
 
     const params = new URLSearchParams(window.location.search);
     const executeRevision = params.get('executeRevision');
+    const executeAdd = params.get('executeAdd')
 
 
     if (!name || !institution || !begin_month || !begin_year || !end_month || !end_year) {
@@ -25,7 +27,10 @@ continueButton.addEventListener('click', () => {
         displayAlert();
     } else if (begin_year > end_year || (begin_year === end_year && begin_month > end_month)) {
         displayAlert();
-    } else if (!executeRevision) {
+    } else if(executeAdd) {
+        addToForm();
+        nextPage('revision.html')
+    } else if (!executeRevision && !executeAdd) {
         addToForm();
         nextPage('education revision.html');
     }
