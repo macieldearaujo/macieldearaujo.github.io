@@ -1,4 +1,4 @@
-import { form, displayAlert, saveToStorage, nextPage, editForm, editFormIndex } from '../data/form.js'
+import { form, displayAlert, saveToStorage, nextPage, editForm } from '../data/form.js'
 
 editForm('personal_informations');
 
@@ -38,17 +38,17 @@ continueButton.addEventListener('click', () => {
     const name = document.querySelector('input[name="name"]').value;
     const email = document.querySelector('input[name="email"]').value;
     const phone = document.querySelector('.js-form-input-phone').value;
-
     const marital_status = document.querySelector('.js-form-input-maritial-status').value;
-
     const country = document.querySelector('.js-form-input-country').value;
-
     const city = document.querySelector('.form-input[name="city"]').value;
     const neighborhood = document.querySelector('.js-form-input-neighborhood').value;
 
+    const params = new URLSearchParams(window.location.search);
+    const executeRevision = params.get('executeRevision');
+
     if (!name || !email || !phone || !marital_status || !country || !city) {
         displayAlert();
-    } else {
+    } else if (!executeRevision) {
         form.personalInformations = {};
         form.personalInformations.name = name;
         form.personalInformations.email = email;

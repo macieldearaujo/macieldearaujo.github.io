@@ -3,11 +3,9 @@ import { form, displayAlert, saveToStorage, nextPage, editForm } from '../data/f
 
 editForm('education');
 console.log(form)
-main()
 
 
-function main() {
-    const continueButton = document.querySelector(`.js-form-button-continue`);
+const continueButton = document.querySelector(`.js-form-button-continue`);
 
 continueButton.addEventListener('click', () => {
     const name = document.querySelector('.js-form-input-course').value;
@@ -20,7 +18,7 @@ continueButton.addEventListener('click', () => {
     const params = new URLSearchParams(window.location.search);
     const executeRevision = params.get('executeRevision');
 
-    
+
     if (!name || !institution || !begin_month || !begin_year || !end_month || !end_year) {
         displayAlert();
     } else if (begin_month === 'default' || begin_year === 'default' || end_month === 'default' || end_year === 'default') {
@@ -49,4 +47,3 @@ continueButton.addEventListener('click', () => {
     console.log(form)
     saveToStorage();
 })
-}
