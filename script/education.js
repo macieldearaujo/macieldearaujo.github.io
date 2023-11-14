@@ -42,8 +42,8 @@ continueButton.addEventListener('click', () => {
         };
 
         form.courses.push(courses);
+        saveToStorage();
     }
 
     console.log(form)
-    saveToStorage();
 })

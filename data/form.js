@@ -144,7 +144,7 @@ export function editForm(page) {
             editFormIndex()
             }
             if (page === 'education') {
-           editFormEducation(page, id)
+           editFormEducation(id)
             }
         }
     });
@@ -225,7 +225,7 @@ export function editFormEducation(id) {
                         course.begin_year = beginYearElement.value;
                         course.end_month = endMonthElement.value;
                         course.end_year = endYearElement.value;
-                        
+
                         saveToStorage();
                         nextPage('revision.html')
                 }
