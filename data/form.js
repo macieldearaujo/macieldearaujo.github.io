@@ -118,12 +118,12 @@ export function removeFromForm(object, parameter) {
                 }
                 parameter.forEach((page, index) => {
                     page.id = index;
+                    displayOnScreen(object, parameter)
                   });
             });
             
             console.log(form)
             saveToStorage();
-            location.reload();
         })
     })
 }
