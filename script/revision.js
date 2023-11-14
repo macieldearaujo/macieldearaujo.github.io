@@ -12,7 +12,7 @@ function personAndAddress() {
     const city = form.adress.city;
     const country = form.adress.country;
 
-    const nameElement = document.querySelector('.js-name'); 
+    const nameElement = document.querySelector('.js-name');
     const emailPhoneElement = document.querySelector('.js-email-phone');
     const marital_statusElement = document.querySelector('.js-marital_status');
     const adressElement = document.querySelector('.js-adress');
@@ -38,20 +38,26 @@ ifEmpty('education', form.courses);
 ifEmpty('ability', form.abilities);
 ifEmpty('idiom', form.idioms);
 
-const nameEditButton = document.querySelector('.form-edit-name');
+editIndex();
+editEducation();
 
-nameEditButton.addEventListener('click', () => {
-    window.location.href = 'index.html?executeRevision=true';
-});
+function editIndex() {
+    const nameEditButton = document.querySelector('.form-edit-name');
 
-form.courses.forEach((value) => {
-    const id = value.id
-    const educationButton = document.querySelector(`.form-edit-education-${id}`);
+    nameEditButton.addEventListener('click', () => {
+        window.location.href = 'index.html?executeRevision=true';
+    });
+}
 
-    educationButton.addEventListener('click', () => {
-        window.location.href = `education.html?executeRevision=true&id=${id}`;
+export function editEducation() {
+    const button = document.querySelectorAll('.js-edit-education');
+
+    button.forEach((buttonSelected, index) => {
+        buttonSelected.addEventListener('click', () => {
+            window.location.href = `education.html?executeRevision=true&id=${index}`;
+        })
     })
-});
+}
 
 
 
