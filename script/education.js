@@ -1,54 +1,54 @@
 import { form, displayAlert, saveToStorage, nextPage } from '../data/form.js'
-import { editForm } from '../data/editform.js'
-
-
-editForm('education');
+import { editFormEducation } from '../data/editform.js'
 
 console.log(form)
 
+const params = new URLSearchParams(window.location.search);
+const executeRevision = params.get('executeRevision');
+const executeAdd = params.get('executeAdd')
+const id = params.get('id');
 
-const continueButton = document.querySelector(`.js-form-button-continue`);
+if (executeRevision === 'true') {
+    editFormEducation(id);
+}
 
-continueButton.addEventListener('click', () => {
-    const name = document.querySelector('.js-form-input-course').value;
-    const institution = document.querySelector('.js-form-input-institution').value;
-    const begin_month = document.querySelector('.js-form-input-begin-month').value;
-    const begin_year = document.querySelector('.js-form-input-begin-year').value;
-    const end_month = document.querySelector('.js-form-input-end-month').value;
-    const end_year = document.querySelector('.js-form-input-end-year').value;
-
-    const params = new URLSearchParams(window.location.search);
-    const executeRevision = params.get('executeRevision');
-    const executeAdd = params.get('executeAdd')
+const nameElement = document.querySelector('.js-form-input-course');
+const institutionElement = document.querySelector('.js-form-input-institution');
+const begin_monthElement = document.querySelector('.js-form-input-begin-month');
+const begin_yearElement = document.querySelector('.js-form-input-begin-year');
+const end_monthElement = document.querySelector('.js-form-input-end-month');
+const end_yearElement = document.querySelector('.js-form-input-end-year');
 
 
-    if (!name || !institution || !begin_month || !begin_year || !end_month || !end_year) {
+document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
+    if (!nameElement.value || !institutionElement.value || !begin_monthElement.value || !begin_yearElement.value || !end_monthElement.value || !end_yearElement.value) {
         displayAlert();
-    } else if (begin_month === 'default' || begin_year === 'default' || end_month === 'default' || end_year === 'default') {
+    } else if (begin_monthElement.value === 'default' || begin_yearElement.value === 'default' || end_monthElement.value === 'default' || end_yearElement.value === 'default') {
         displayAlert();
-    } else if (begin_year > end_year || (begin_year === end_year && begin_month > end_month)) {
+    } else if (begin_yearElement.value > end_yearElement.value || (begin_yearElement.value === end_yearElement.value && begin_monthElement.value > end_monthElement.value)) {
         displayAlert();
-    } else if(executeAdd) {
+    } else if (executeAdd) {
         addToForm();
-        nextPage('revision.html')
+        saveToStorage();
+        nextPage('revision.html');
     } else if (!executeRevision && !executeAdd) {
         addToForm();
+        saveToStorage();
         nextPage('education revision.html');
     }
 
     function addToForm() {
         const courses = {
             id: form.courses.length,
-            name: name,
-            institution: institution,
-            begin_month: begin_month,
-            begin_year: begin_year,
-            end_month: end_month,
-            end_year: end_year,
+            name: nameElement.value,
+            institution: institutionElement.value,
+            begin_month: begin_monthElement.value,
+            begin_year: begin_yearElement.value,
+            end_month: end_monthElement.value,
+            end_year: end_yearElement.value
         };
 
         form.courses.push(courses);
-        saveToStorage();
     }
 
     console.log(form)
