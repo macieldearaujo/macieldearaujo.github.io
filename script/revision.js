@@ -33,7 +33,8 @@ displayOnScreen('experience', form.experiences);
 displayOnScreen('ability', form.abilities);
 displayOnScreen('idiom', form.idioms);
 
-addEducation('education');
+addToForm('education');
+addToForm('experience');
 
 removeFromForm('education', form.courses);
 removeFromForm('experience', form.experiences);
@@ -68,14 +69,10 @@ export function editEducation() {
     })
 }
 
-
-
-const adressElement = document.querySelector('.js-adress');
-
-function addEducation(page) {
+function addToForm(page) {
     const addButton = document.querySelector(`.js-add-${page}`);
 
     addButton.addEventListener('click', () => {
-        window.location.href = `education.html?executeAdd=true`
+        window.location.href = `${page}.html?executeAdd=true`
     })
 }
