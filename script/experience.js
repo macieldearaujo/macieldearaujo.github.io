@@ -27,6 +27,10 @@ document.querySelector(`.js-form-button-continue`).addEventListener('click', () 
         displayAlert();
     } else if (begin_year.value > end_year.value || (begin_year.value === end_year.value && begin_month.value > end_month.value)) {
         displayAlert();
+    } else if (executeAdd) {
+        addToForm();
+        saveToStorage();
+        nextPage('revision.html');
     } else if (!executeRevision && !executeAdd) {
         addToForm();
         saveToStorage();
