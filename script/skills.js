@@ -1,4 +1,4 @@
-import { form, displayOnScreen, saveToStorage, removeFromForm } from '../data/form.js'
+import { form, displayOnScreen, saveToStorage, removeFromForm, nextPage } from '../data/form.js'
 
 const addButton_idiom = document.querySelector('.js-add-idiom');
 const addButton_ability = document.querySelector('.js-add-ability');
@@ -18,6 +18,10 @@ addButton_ability.addEventListener('click', () => {
     removeFromForm('abilities', form.abilities);
     console.log(form);
 })
+
+document.querySelector('.js-form-button-continue').addEventListener('click', () => {
+    nextPage('revision.html')
+}) 
 
 displayOnScreen('ability', form.abilities);
 displayOnScreen('idiom', form.idioms);
