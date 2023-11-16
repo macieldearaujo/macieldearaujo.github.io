@@ -50,7 +50,7 @@ const country = form.adress.country;
 const city = form.adress.city;
 const neighborhood = form.adress.neighborhood;
 
-if ((executeRevision) && (name && email && phone && marital_status && country && city && neighborhood)) {
+if (executeRevision && (name && email && phone && marital_status && country && city && neighborhood)) {
     nameElement.value = name;
     emailElement.value = email;
     phoneElement.value = phone;
@@ -60,9 +60,17 @@ if ((executeRevision) && (name && email && phone && marital_status && country &&
     countryElement.value = country;
 }
 
-document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
+document.addEventListener('keydown', (event) => {
+    if(event.key === 'Enter') {
+        clickContinue()
+    }
+});
+
+document.querySelector(`.js-form-button-continue`).addEventListener('click', clickContinue);
+
+function clickContinue() {
     //check if the inputs are valid
-    if (!nameElement || !emailElement || !phoneElement || !marital_statusElement || !countryElement || !cityElement) {
+    if (!nameElement.value || !emailElement.value || !phoneElement.value || !marital_statusElement.value || !countryElement.value || !cityElement.value) {
         displayAlert();
     } else if (executeRevision) {
         readInput()
@@ -71,7 +79,7 @@ document.querySelector(`.js-form-button-continue`).addEventListener('click', () 
         readInput()
         saveAndUpdate('education.html')
     }
-});
+}
 
 function readInput() {    
     const marital_statusElementText = marital_statusElement.options[marital_statusElement.selectedIndex].text;

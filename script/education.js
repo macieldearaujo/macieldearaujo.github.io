@@ -20,7 +20,15 @@ const end_monthElement = document.querySelector('.js-form-input-end-month');
 const end_yearElement = document.querySelector('.js-form-input-end-year');
 
 
-document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
+document.addEventListener('keydown', (event) => {
+    if(event.key === 'Enter') {
+        clickContinue()
+    }
+})
+
+document.querySelector(`.js-form-button-continue`).addEventListener('click', clickContinue)
+
+function clickContinue() {
     if (!nameElement.value || !institutionElement.value || !begin_monthElement.value || !begin_yearElement.value || !end_monthElement.value || !end_yearElement.value) {
         displayAlert();
     } else if (begin_monthElement.value === 'default' || begin_yearElement.value === 'default' || end_monthElement.value === 'default' || end_yearElement.value === 'default') {
@@ -52,4 +60,4 @@ document.querySelector(`.js-form-button-continue`).addEventListener('click', () 
     }
 
     console.log(form)
-})
+}
