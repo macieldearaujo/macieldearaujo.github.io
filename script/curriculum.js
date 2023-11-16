@@ -61,39 +61,34 @@ if ((executeRevision) && (name && email && phone && marital_status && country &&
 }
 
 document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
-
-    const nameElement = document.querySelector('.js-form-input-name');
-    const emailElement = document.querySelector('.js-form-input-email');
-    const phoneElement = document.querySelector('.js-form-input-phone');
-    const marital_statusElement = document.querySelector('.js-form-input-maritial-status');
-    const neighborhoodElement = document.querySelector('.js-form-input-neighborhood');
-    const cityElement = document.querySelector('.js-form-input-city');
-    const countryElement = document.querySelector('.js-form-input-country');
-
+    const marital_statusElementText = marital_statusElement.options[marital_statusElement.selectedIndex].text;
+    const countryElementText = countryElement.options[countryElement.selectedIndex].text;
     //check if the inputs are valid
     if (!nameElement || !emailElement || !phoneElement || !marital_statusElement || !countryElement || !cityElement) {
         displayAlert();
     } else if (executeRevision) {
-        readInput(nameElement, emailElement, phoneElement, marital_statusElement, neighborhoodElement, cityElement, countryElement)
+        readInput(nameElement, emailElement, phoneElement, marital_statusElement, marital_statusElementText, neighborhoodElement, cityElement, countryElement, countryElementText)
         saveAndUpdate('revision.html')
     } else {
-        readInput(nameElement, emailElement, phoneElement, marital_statusElement, neighborhoodElement, cityElement, countryElement)
+        readInput(nameElement, emailElement, phoneElement, marital_statusElement, marital_statusElementText, neighborhoodElement, cityElement, countryElement, countryElementText)
         saveAndUpdate('education.html')
     }
 });
 
-function readInput(nameElement, emailElement, phoneElement, marital_statusElement, neighborhoodElement, cityElement, countryElement) {
+function readInput(nameElement, emailElement, phoneElement, marital_statusElement, marital_statusElementText, neighborhoodElement, cityElement, countryElement, countryElementText) {    
     form.personalInformations.name = nameElement.value;
     form.personalInformations.email = emailElement.value;
     form.personalInformations.phone = phoneElement.value;
     form.personalInformations.marital_status = marital_statusElement.value;
+    form.personalInformations.marital_status_text = marital_statusElementText;
     form.adress.neighborhood = neighborhoodElement.value;
     form.adress.city = cityElement.value;
     form.adress.country = countryElement.value;
+    form.adress.country_text = countryElementText;
 }
 
 function saveAndUpdate(link) {
-    console.log(form)
+    console.log(form);
     saveToStorage();
     nextPage(link);
 }

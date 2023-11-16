@@ -8,10 +8,10 @@ function personAndAddress() {
     const name = form.personalInformations.name;
     const email = form.personalInformations.email;
     const phone = form.personalInformations.phone;
-    const marital_status = form.personalInformations.marital_status;
+    const marital_statusText = form.personalInformations.marital_status_text;
     const neighborhood = form.adress.neighborhood;
     const city = form.adress.city;
-    const country = form.adress.country;
+    const countryText = form.adress.country_text;
 
     // get the paragraphs or titles
     const nameElement = document.querySelector('.js-name');
@@ -20,11 +20,11 @@ function personAndAddress() {
     const adressElement = document.querySelector('.js-adress');
 
     // display on screen
-    if(name || email || phone || marital_status || neighborhood || city || country) {
+    if (name || email || phone || marital_status || neighborhood || city || countryText) {
         nameElement.innerHTML = name;
-        marital_statusElement.innerHTML = marital_status;
+        marital_statusElement.innerHTML = marital_statusText;
         emailPhoneElement.innerHTML = `${email} | ${phone}`;
-        adressElement.innerHTML = `${neighborhood}, ${city}, ${country}`
+        adressElement.innerHTML = `${neighborhood}, ${city}, ${countryText}`
     }
 }
 
