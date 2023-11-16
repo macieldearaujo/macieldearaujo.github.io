@@ -1,5 +1,15 @@
 import { form, saveToStorage, nextPage, displayAlert } from '../data/form.js'
 
+export function editEducation(page) {
+    const button = document.querySelectorAll(`.js-edit-${page}`);
+
+    button.forEach((buttonSelected, index) => {
+        buttonSelected.addEventListener('click', () => {
+            window.location.href = `${page}.html?executeRevision=true&id=${index}`;
+        })
+    })
+}
+
 export function editForm(id, object) {
     const nameCourseElement = document.querySelector(`.js-form-input-title`);
     const institutionElement = document.querySelector(`.js-form-input-institution`);

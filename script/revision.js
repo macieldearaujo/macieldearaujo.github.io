@@ -1,4 +1,5 @@
 import { form, displayOnScreen, removeFromForm, ifEmpty } from '../data/form.js'
+import { editEducation } from '../data/editform.js'
 
 console.log(form)
 personAndAddress()
@@ -58,16 +59,6 @@ function editIndex() {
     nameEditButton.addEventListener('click', () => {
         window.location.href = 'index.html?executeRevision=true';
     });
-}
-
-export function editEducation(page) {
-    const button = document.querySelectorAll(`.js-edit-${page}`);
-
-    button.forEach((buttonSelected, index) => {
-        buttonSelected.addEventListener('click', () => {
-            window.location.href = `${page}.html?executeRevision=true&id=${index}`;
-        })
-    })
 }
 
 function addToForm(page) {
