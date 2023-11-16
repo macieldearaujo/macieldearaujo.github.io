@@ -75,14 +75,10 @@ document.querySelector(`.js-form-button-continue`).addEventListener('click', () 
         displayAlert();
     } else if (executeRevision) {
         readInput(nameElement, emailElement, phoneElement, marital_statusElement, neighborhoodElement, cityElement, countryElement)
-        saveToStorage();
-        nextPage('revision.html')
+        saveAndUpdate('revision.html')
     } else {
         readInput(nameElement, emailElement, phoneElement, marital_statusElement, neighborhoodElement, cityElement, countryElement)
-
-        console.log(form)
-        saveToStorage();
-        nextPage('education.html');
+        saveAndUpdate('education.html')
     }
 });
 
@@ -94,4 +90,10 @@ function readInput(nameElement, emailElement, phoneElement, marital_statusElemen
     form.adress.neighborhood = neighborhoodElement.value;
     form.adress.city = cityElement.value;
     form.adress.country = countryElement.value;
+}
+
+function saveAndUpdate(link) {
+    console.log(form)
+    saveToStorage();
+    nextPage(link);
 }
