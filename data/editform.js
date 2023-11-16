@@ -28,13 +28,20 @@ export function editForm(id, object, link) {
             endMonthElement.value = item.end_month;
             endYearElement.value = item.end_year;
 
+            if(object == form.experiences) { //If it's experience, add a description
+                const description = document.querySelector('.js-form-input-description');
+                description.textContent = item.description;
+            }
+
             document.addEventListener('keydown', (event) => {
                 if(event.key === 'Enter') {
                     clickContinue(item)
                 }
             })
 
-            document.querySelector(`.js-form-button-continue`).addEventListener('click', clickContinue)
+            document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
+                clickContinue(item)
+            })
         }
     })
 
