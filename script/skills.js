@@ -1,9 +1,19 @@
 import { form, displayOnScreen, saveToStorage, removeFromForm, nextPage } from '../data/form.js'
+import { editFormSkills } from '../data/editform.js'
+
+console.log(form);
+
+const params = new URLSearchParams(window.location.search);
+const executeRevision = params.get('executeRevision');
+const executeAdd = params.get('executeAdd');
+const id = params.get('id');
+
+if (executeRevision) {
+    editFormSkills(id, form.idioms, executeRevision);
+}
 
 const addButton_idiom = document.querySelector('.js-add-idiom');
 const addButton_ability = document.querySelector('.js-add-ability');
-
-console.log(form);
 
 addButton_idiom.addEventListener('click', () => {
     addToForm('idiom');
@@ -28,17 +38,19 @@ displayOnScreen('idiom', form.idioms);
 
 function addToForm(input) {
     if (input === 'idiom') { // if it's idiom save to idiom object
-        const languageElement = document.querySelector('.js-form-input-language');
-        const proficiencyElement = document.querySelector('.js-form-input-proficiency');
+        const language = document.querySelector('.js-form-input-language');
+        const proficiency = document.querySelector('.js-form-input-proficiency');
 
-        const language = languageElement.options[languageElement.selectedIndex].text;
-        const proficiency = proficiencyElement.options[proficiencyElement.selectedIndex].text;
+        const language_text = language.options[language.selectedIndex].text;
+        const proficiency_text = proficiency.options[proficiency.selectedIndex].text;
 
-        if (language !== 'default' || proficiency !== 'default') {
+        if (language.value !== 'default' || proficiency.value !== 'default') {
             form.idioms.push({
                 id: form.idioms.length,
-                language,
-                proficiency
+                language: language.value,
+                language_text,
+                proficiency: proficiency.value,
+                proficiency_text
             })
         }
     } else if (input === 'ability') { // if it's ability save to ability object

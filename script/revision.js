@@ -34,6 +34,7 @@ displayOnScreen('experience', form.experiences);
 displayOnScreen('ability', form.abilities);
 displayOnScreen('idiom', form.idioms);
 
+addToForm('personal-information', 'index');
 addToForm('education', 'education');
 addToForm('experience', 'experience');
 addToForm('idiom' ,'skills');
@@ -50,18 +51,8 @@ ifEmpty('education', form.courses);
 ifEmpty('ability', form.abilities);
 ifEmpty('idiom', form.idioms);
 
-editIndex();
 editEducation('education', 'revision');
 editEducation('experience', 'revision');
-
-
-function editIndex() {
-    const nameEditButton = document.querySelector('.form-edit-name');
-
-    nameEditButton.addEventListener('click', () => {
-        window.location.href = 'index.html?executeRevision=true';
-    });
-}
 
 function addToForm(page, link) {
     const addButton = document.querySelector(`.js-add-${page}`);

@@ -67,3 +67,13 @@ export function editForm(id, object, link) {
             nextPage(`${link}.html`)
     }}
 }
+
+export function editFormSkills(id, object, link) {
+    const languageElement = document.querySelector('.js-form-input-language');
+    
+    object.forEach((item, index) => {
+        if (index == id) {
+            
+        }
+    })
+}

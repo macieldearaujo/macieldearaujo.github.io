@@ -49,8 +49,8 @@ export function displayOnScreen(page, parameter) {
         `
         } else if (page === 'idiom') {
             const id = value.id;
-            const language = value.language;
-            const proficiency = value.proficiency;
+            const language = value.language_text;
+            const proficiency = value.proficiency_text;
 
             displayHTML += `
     <div class="container-idiom container-title-revision js-container-idioms-${id}">
