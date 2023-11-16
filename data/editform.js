@@ -1,16 +1,16 @@
 import { form, saveToStorage, nextPage, displayAlert } from '../data/form.js'
 
-export function editEducation(page) {
+export function editEducation(page, link) {
     const button = document.querySelectorAll(`.js-edit-${page}`);
 
     button.forEach((buttonSelected, index) => {
         buttonSelected.addEventListener('click', () => {
-            window.location.href = `${page}.html?executeRevision=true&id=${index}`;
+            window.location.href = `${page}.html?executeRevision=${link}&id=${index}`;
         })
     })
 }
 
-export function editForm(id, object) {
+export function editForm(id, object, link) {
     const nameCourseElement = document.querySelector(`.js-form-input-title`);
     const institutionElement = document.querySelector(`.js-form-input-institution`);
     const beginMonthElement = document.querySelector(`.js-form-input-begin-month`);
@@ -47,7 +47,7 @@ export function editForm(id, object) {
                     }
 
                     saveToStorage();
-                    nextPage('revision.html')
+                    nextPage(`${link}.html`)
                 }
             })
         }

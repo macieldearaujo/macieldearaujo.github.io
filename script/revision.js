@@ -49,8 +49,8 @@ ifEmpty('ability', form.abilities);
 ifEmpty('idiom', form.idioms);
 
 editIndex();
-editEducation('education');
-editEducation('experience');
+editEducation('education', 'revision');
+editEducation('experience', 'revision');
 
 
 function editIndex() {

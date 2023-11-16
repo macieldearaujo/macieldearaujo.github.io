@@ -3,7 +3,7 @@ import { editEducation } from '../data/editform.js'
 
 displayOnScreen('education', form.courses);
 
-editEducation('education');
+editEducation('education', 'education revision');
 
 const addButton = document.querySelector(`.js-form-button-add-education`);
 
