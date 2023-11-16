@@ -1,5 +1,5 @@
 import { form, displayAlert, saveToStorage, nextPage } from '../data/form.js'
-import { editFormEducation } from '../data/editform.js'
+import { editForm } from '../data/editform.js'
 
 console.log(form)
 
@@ -9,10 +9,10 @@ const executeAdd = params.get('executeAdd')
 const id = params.get('id');
 
 if (executeRevision === 'true') {
-    editFormEducation(id);
+    editForm(id, form.courses);
 }
 
-const nameElement = document.querySelector('.js-form-input-course');
+const nameElement = document.querySelector('.js-form-input-title');
 const institutionElement = document.querySelector('.js-form-input-institution');
 const begin_monthElement = document.querySelector('.js-form-input-begin-month');
 const begin_yearElement = document.querySelector('.js-form-input-begin-year');

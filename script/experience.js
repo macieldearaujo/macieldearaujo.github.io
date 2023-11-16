@@ -1,47 +1,52 @@
 import { form, displayAlert, saveToStorage, nextPage } from '../data/form.js'
+import { editForm } from '../data/editform.js'
 
-checkInput('experience');
+console.log(form);
 
-function checkInput(page) {
-    console.log(form)
-    const continueButton = document.querySelector(`.js-form-button-continue-${page}`);
+const params = new URLSearchParams(window.location.search);
+const executeRevision = params.get('executeRevision');
+const executeAdd = params.get('executeAdd')
+const id = params.get('id');
 
-    continueButton.addEventListener('click', () => {
-        const name = document.querySelector('.js-form-input-position').value;
-        const institution = document.querySelector('.js-form-input-company').value;
-        const begin_month = document.querySelector('.js-form-input-begin-month').value;
-        const begin_year = document.querySelector('.js-form-input-begin-year').value;
-        const end_month = document.querySelector('.js-form-input-end-month').value;
-        const end_year = document.querySelector('.js-form-input-end-year').value;
-        const description = document.querySelector('.js-form-input-description').textContent;
-
-        if (!name || !institution || !begin_month || !begin_year || !end_month || !end_year) {
-            displayAlert();
-        } else if (begin_month === 'default' || begin_year === 'default' || end_month === 'default' || end_year === 'default') {
-            displayAlert();
-        } else if (begin_year > end_year || (begin_year === end_year && begin_month > end_month)) {
-            displayAlert();
-        } else {
-            addToForm();
-            nextPage('experience revision.html');
-        }
-
-        function addToForm() {
-            const experience = {
-                id: form.experiences.length,
-                name,
-                institution,
-                begin_month,
-                begin_year,
-                end_month,
-                end_year,
-                description
-            };
-            
-            form.experiences.push(experience);
-        }
-
-        console.log(form)
-        saveToStorage();
-    })
+if (executeRevision === 'true') {
+    editForm(id, form.experiences);
 }
+
+const name = document.querySelector('.js-form-input-title');
+const institution = document.querySelector('.js-form-input-institution');
+const begin_month = document.querySelector('.js-form-input-begin-month');
+const begin_year = document.querySelector('.js-form-input-begin-year');
+const end_month = document.querySelector('.js-form-input-end-month');
+const end_year = document.querySelector('.js-form-input-end-year');
+const description = document.querySelector('.js-form-input-description');
+
+document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
+    if (!name.value || !institution.value || !begin_month.value || !begin_year.value || !end_month.value || !end_year.value) {
+        displayAlert();
+    } else if (begin_month.value === 'default' || begin_year.value === 'default' || end_month.value === 'default' || end_year.value === 'default') {
+        displayAlert();
+    } else if (begin_year.value > end_year.value || (begin_year.value === end_year.value && begin_month.value > end_month.value)) {
+        displayAlert();
+    } else if (!executeRevision && !executeAdd) {
+        addToForm();
+        saveToStorage();
+        nextPage('experience revision.html');
+    }
+
+    function addToForm() {
+        const experience = {
+            id: form.experiences.length,
+            name: name.value,
+            institution: institution.value,
+            begin_month: begin_month.value,
+            begin_year: begin_year.value,
+            end_month: end_month.value,
+            end_year: end_year.value,
+            description: description.textContent
+        };
+
+        form.experiences.push(experience);
+    }
+
+    console.log(form);
+})

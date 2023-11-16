@@ -48,7 +48,8 @@ ifEmpty('ability', form.abilities);
 ifEmpty('idiom', form.idioms);
 
 editIndex();
-editEducation();
+editEducation('education');
+editEducation('experience');
 
 
 function editIndex() {
@@ -59,12 +60,12 @@ function editIndex() {
     });
 }
 
-export function editEducation() {
-    const button = document.querySelectorAll('.js-edit-education');
+export function editEducation(page) {
+    const button = document.querySelectorAll(`.js-edit-${page}`);
 
     button.forEach((buttonSelected, index) => {
         buttonSelected.addEventListener('click', () => {
-            window.location.href = `education.html?executeRevision=true&id=${index}`;
+            window.location.href = `${page}.html?executeRevision=true&id=${index}`;
         })
     })
 }
