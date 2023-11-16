@@ -1,8 +1,6 @@
 import { form, displayAlert, saveToStorage, nextPage } from '../data/form.js';
-import { editForm } from '../data/editform.js';
 
-editForm('personal_informations');
-
+console.log(form);
 
 formatPhone();
 
@@ -30,39 +28,70 @@ function formatPhone() {
     });
 }
 
-console.log(form)
+// parameters that come from the revision
+const params = new URLSearchParams(window.location.search);
+const executeRevision = params.get('executeRevision');
+
+// get the value of inputs
+const nameElement = document.querySelector('.js-form-input-name');
+const emailElement = document.querySelector('.js-form-input-email');
+const phoneElement = document.querySelector('.js-form-input-phone');
+const marital_statusElement = document.querySelector('.js-form-input-maritial-status');
+const neighborhoodElement = document.querySelector('.js-form-input-neighborhood');
+const cityElement = document.querySelector('.js-form-input-city');
+const countryElement = document.querySelector('.js-form-input-country');
+
+// get the objects
+const name = form.personalInformations.name;
+const email = form.personalInformations.email;
+const phone = form.personalInformations.phone;
+const marital_status = form.personalInformations.marital_status;
+const country = form.adress.country;
+const city = form.adress.city;
+const neighborhood = form.adress.neighborhood;
+
+if ((executeRevision) && (name && email && phone && marital_status && country && city && neighborhood)) {
+    nameElement.value = name;
+    emailElement.value = email;
+    phoneElement.value = phone;
+    marital_statusElement.value = marital_status;
+    neighborhoodElement.value = neighborhood;
+    cityElement.value = city;
+    countryElement.value = country;
+}
 
 document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
-    // get the value of inputs
-    const name = document.querySelector('input[name="name"]').value;
-    const email = document.querySelector('input[name="email"]').value;
-    const phone = document.querySelector('.js-form-input-phone').value;
-    const marital_status = document.querySelector('.js-form-input-maritial-status').value;
-    const country = document.querySelector('.js-form-input-country').value;
-    const city = document.querySelector('.form-input[name="city"]').value;
-    const neighborhood = document.querySelector('.js-form-input-neighborhood').value;
 
-    // parameters that come from the revision
-    const params = new URLSearchParams(window.location.search);
-    const executeRevision = params.get('executeRevision');
+    const nameElement = document.querySelector('.js-form-input-name');
+    const emailElement = document.querySelector('.js-form-input-email');
+    const phoneElement = document.querySelector('.js-form-input-phone');
+    const marital_statusElement = document.querySelector('.js-form-input-maritial-status');
+    const neighborhoodElement = document.querySelector('.js-form-input-neighborhood');
+    const cityElement = document.querySelector('.js-form-input-city');
+    const countryElement = document.querySelector('.js-form-input-country');
 
     //check if the inputs are valid
-    if (!name || !email || !phone || !marital_status || !country || !city) {
+    if (!nameElement || !emailElement || !phoneElement || !marital_statusElement || !countryElement || !cityElement) {
         displayAlert();
-    } else if (!executeRevision) {
-        form.personalInformations = {};
-        form.personalInformations.name = name;
-        form.personalInformations.email = email;
-        form.personalInformations.phone = phone;
-        form.personalInformations.marital_status = marital_status;
-        form.adress = {};
-        form.adress.country = country;
-        form.adress.city = city;
-        form.adress.neighborhood = neighborhood;
+    } else if (executeRevision) {
+        readInput(nameElement, emailElement, phoneElement, marital_statusElement, neighborhoodElement, cityElement, countryElement)
+        saveToStorage();
+        nextPage('revision.html')
+    } else {
+        readInput(nameElement, emailElement, phoneElement, marital_statusElement, neighborhoodElement, cityElement, countryElement)
 
         console.log(form)
         saveToStorage();
-
         nextPage('education.html');
     }
-})
+});
+
+function readInput(nameElement, emailElement, phoneElement, marital_statusElement, neighborhoodElement, cityElement, countryElement) {
+    form.personalInformations.name = nameElement.value;
+    form.personalInformations.email = emailElement.value;
+    form.personalInformations.phone = phoneElement.value;
+    form.personalInformations.marital_status = marital_statusElement.value;
+    form.adress.neighborhood = neighborhoodElement.value;
+    form.adress.city = cityElement.value;
+    form.adress.country = countryElement.value;
+}
