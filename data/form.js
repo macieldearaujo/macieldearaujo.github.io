@@ -39,7 +39,7 @@ export function displayOnScreen(page, parameter) {
             displayHTML += `
         <div class="container-ability container-title-revision js-container-abilities-${id}">
             <p class="form-skills-title">${abilities}</p>
-            <button class="pencil-img">
+            <button class="pencil-img js-edit-${page} form-edit-${page}-${id}">
                 <img src="img/pencil.png" style="width: 24px;">
             </button>
             <button class="icon-img icon-${'abilities'}-${id}">
@@ -55,7 +55,7 @@ export function displayOnScreen(page, parameter) {
             displayHTML += `
     <div class="container-idiom container-title-revision js-container-idioms-${id}">
         <p class="form-skills-title">${language} - ${proficiency}</p>
-        <button class="pencil-img">
+        <button class="pencil-img js-edit-${page} form-edit-${page}-${id}">
                 <img src="img/pencil.png" style="width: 24px;">
             </button>
         <button class="icon-img icon-idioms-${id}">
