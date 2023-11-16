@@ -1,24 +1,21 @@
 import { form, removeFromForm, displayOnScreen, nextPage, ifEmpty } from '../data/form.js'
+import { editEducation } from '../data/editform.js'
 
-const page = 'experience'
+displayOnScreen('experience', form.experiences);
 
-checkInput(page);
+editEducation('experience', 'experience revision');
 
-displayOnScreen(page, form.experiences);
+const addButton = document.querySelector(`.js-form-button-add-${'experience'}`);
 
-const addButton = document.querySelector(`.js-form-button-add-${page}`);
+addButton.addEventListener('click', () => {
+    window.location.href = 'experience.html'
+})
 
-    addButton.addEventListener('click', () => {
-        window.location.href = 'experience.html'
-    })
- 
-function checkInput(page) {
-    console.log(form)
-    const continueButton = document.querySelector(`.js-form-button-continue-${page}`);
-    
-    continueButton.addEventListener('click', () => {
-        nextPage('skills.html');
-    })
-}
+console.log(form)
+const continueButton = document.querySelector(`.js-form-button-continue-${'experience'}`);
 
-removeFromForm(page, form.experiences);
+continueButton.addEventListener('click', () => {
+    nextPage('skills.html');
+})
+
+removeFromForm('experience', form.experiences);

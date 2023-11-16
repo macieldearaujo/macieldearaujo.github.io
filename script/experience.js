@@ -8,8 +8,8 @@ const executeRevision = params.get('executeRevision');
 const executeAdd = params.get('executeAdd')
 const id = params.get('id');
 
-if (executeRevision === 'true') {
-    editForm(id, form.experiences);
+if (executeRevision) {
+    editForm(id, form.experiences, executeRevision);
 }
 
 const name = document.querySelector('.js-form-input-title');

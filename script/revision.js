@@ -21,7 +21,7 @@ function personAndAddress() {
     const adressElement = document.querySelector('.js-adress');
 
     // display on screen
-    if (name || email || phone || marital_status || neighborhood || city || countryText) {
+    if (name || email || phone || marital_statusText || neighborhood || city || countryText) {
         nameElement.innerHTML = name;
         marital_statusElement.innerHTML = marital_statusText;
         emailPhoneElement.innerHTML = `${email} | ${phone}`;
