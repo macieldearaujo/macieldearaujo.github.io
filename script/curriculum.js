@@ -61,21 +61,22 @@ if ((executeRevision) && (name && email && phone && marital_status && country &&
 }
 
 document.querySelector(`.js-form-button-continue`).addEventListener('click', () => {
-    const marital_statusElementText = marital_statusElement.options[marital_statusElement.selectedIndex].text;
-    const countryElementText = countryElement.options[countryElement.selectedIndex].text;
     //check if the inputs are valid
     if (!nameElement || !emailElement || !phoneElement || !marital_statusElement || !countryElement || !cityElement) {
         displayAlert();
     } else if (executeRevision) {
-        readInput(nameElement, emailElement, phoneElement, marital_statusElement, marital_statusElementText, neighborhoodElement, cityElement, countryElement, countryElementText)
+        readInput()
         saveAndUpdate('revision.html')
     } else {
-        readInput(nameElement, emailElement, phoneElement, marital_statusElement, marital_statusElementText, neighborhoodElement, cityElement, countryElement, countryElementText)
+        readInput()
         saveAndUpdate('education.html')
     }
 });
 
-function readInput(nameElement, emailElement, phoneElement, marital_statusElement, marital_statusElementText, neighborhoodElement, cityElement, countryElement, countryElementText) {    
+function readInput() {    
+    const marital_statusElementText = marital_statusElement.options[marital_statusElement.selectedIndex].text;
+    const countryElementText = countryElement.options[countryElement.selectedIndex].text;
+    
     form.personalInformations.name = nameElement.value;
     form.personalInformations.email = emailElement.value;
     form.personalInformations.phone = phoneElement.value;
