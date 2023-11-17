@@ -1,11 +1,11 @@
 import { form, saveToStorage, nextPage, displayAlert } from '../data/form.js'
 
-export function editEducation(page, link) {
+export function editEducation(page, page2, link) {
     const button = document.querySelectorAll(`.js-edit-${page}`);
 
     button.forEach((buttonSelected, index) => {
         buttonSelected.addEventListener('click', () => {
-            window.location.href = `${page}.html?executeRevision=${link}&id=${index}`;
+            window.location.href = `${page2}.html?executeRevision=${link}&id=${index}`;
         })
     })
 }
@@ -69,11 +69,12 @@ export function editForm(id, object, link) {
 }
 
 export function editFormSkills(id, object, link) {
-    const languageElement = document.querySelector('.js-form-input-language');
+    const ability = document.querySelector('.js-form-input-ability').value;
     
     object.forEach((item, index) => {
         if (index == id) {
-            
+            language.value = item.language;
+            proficiency.value = item.proficiency;
         }
     })
 }

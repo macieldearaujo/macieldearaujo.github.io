@@ -51,8 +51,9 @@ ifEmpty('education', form.courses);
 ifEmpty('ability', form.abilities);
 ifEmpty('idiom', form.idioms);
 
-editEducation('education', 'revision');
-editEducation('experience', 'revision');
+editEducation('education', 'education', 'revision');
+editEducation('experience', 'experience', 'revision');
+editEducation('idiom', 'skills', 'skills');
 
 function addToForm(page, link) {
     const addButton = document.querySelector(`.js-add-${page}`);
