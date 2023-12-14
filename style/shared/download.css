@@ -1,11 +1,7 @@
 .dl-f {
-    display: flex;
     background-color: red;
-    min-height: 842px;
+    height: 842px;
     width: 595px;
-    margin: auto;
-}
-
-.dl-c1 {
-
+    margin: 0 auto;
+    margin-top: 30px;
 }
